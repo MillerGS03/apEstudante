@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UcCronogramas));
             this.label1 = new System.Windows.Forms.Label();
             this.dgCronogramas = new System.Windows.Forms.DataGridView();
@@ -92,14 +92,17 @@
             this.dgCronogramas.AllowUserToDeleteRows = false;
             this.dgCronogramas.AllowUserToResizeColumns = false;
             this.dgCronogramas.AllowUserToResizeRows = false;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgCronogramas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.dgCronogramas.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgCronogramas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dgCronogramas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgCronogramas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.clDomingo,
@@ -112,7 +115,6 @@
             this.dgCronogramas.Location = new System.Drawing.Point(2, 11);
             this.dgCronogramas.MultiSelect = false;
             this.dgCronogramas.Name = "dgCronogramas";
-            this.dgCronogramas.ReadOnly = true;
             this.dgCronogramas.RowHeadersWidth = 80;
             this.dgCronogramas.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgCronogramas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
@@ -120,13 +122,14 @@
             this.dgCronogramas.TabIndex = 1;
             this.dgCronogramas.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgCronogramas_CellClick);
             this.dgCronogramas.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgCronogramas_CellDoubleClick);
+            this.dgCronogramas.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgCronogramas_CellEndEdit);
+            this.dgCronogramas.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dgCronogramas_KeyDown);
             // 
             // clDomingo
             // 
             this.clDomingo.HeaderText = "Domingo";
             this.clDomingo.MinimumWidth = 90;
             this.clDomingo.Name = "clDomingo";
-            this.clDomingo.ReadOnly = true;
             this.clDomingo.Width = 90;
             // 
             // clSegunda
@@ -134,7 +137,6 @@
             this.clSegunda.HeaderText = "Segunda";
             this.clSegunda.MinimumWidth = 90;
             this.clSegunda.Name = "clSegunda";
-            this.clSegunda.ReadOnly = true;
             this.clSegunda.Width = 90;
             // 
             // clTerca
@@ -142,7 +144,6 @@
             this.clTerca.HeaderText = "Terça";
             this.clTerca.MinimumWidth = 90;
             this.clTerca.Name = "clTerca";
-            this.clTerca.ReadOnly = true;
             this.clTerca.Width = 90;
             // 
             // clQuarta
@@ -150,7 +151,6 @@
             this.clQuarta.HeaderText = "Quarta";
             this.clQuarta.MinimumWidth = 90;
             this.clQuarta.Name = "clQuarta";
-            this.clQuarta.ReadOnly = true;
             this.clQuarta.Width = 90;
             // 
             // clQuinta
@@ -158,7 +158,6 @@
             this.clQuinta.HeaderText = "Quinta";
             this.clQuinta.MinimumWidth = 90;
             this.clQuinta.Name = "clQuinta";
-            this.clQuinta.ReadOnly = true;
             this.clQuinta.Width = 90;
             // 
             // clSexta
@@ -166,7 +165,6 @@
             this.clSexta.HeaderText = "Sexta";
             this.clSexta.MinimumWidth = 90;
             this.clSexta.Name = "clSexta";
-            this.clSexta.ReadOnly = true;
             this.clSexta.Width = 90;
             // 
             // clSabado
@@ -174,7 +172,6 @@
             this.clSabado.HeaderText = "Sábado";
             this.clSabado.MinimumWidth = 90;
             this.clSabado.Name = "clSabado";
-            this.clSabado.ReadOnly = true;
             this.clSabado.Width = 90;
             // 
             // txtHorario
@@ -211,6 +208,7 @@
             // 
             // btnRemoverSelecionado
             // 
+            this.btnRemoverSelecionado.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnRemoverSelecionado.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnRemoverSelecionado.Enabled = false;
             this.btnRemoverSelecionado.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
@@ -253,6 +251,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.groupBox1.Controls.Add(this.txtMateria);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label3);
@@ -260,7 +259,7 @@
             this.groupBox1.Controls.Add(this.txtHorario);
             this.groupBox1.Controls.Add(this.btnAdicionar);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Location = new System.Drawing.Point(8, 322);
+            this.groupBox1.Location = new System.Drawing.Point(7, 322);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(308, 184);
             this.groupBox1.TabIndex = 8;
@@ -285,6 +284,9 @@
             // 
             // tabControl1
             // 
+            this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Location = new System.Drawing.Point(-3, 8);
@@ -364,14 +366,14 @@
             this.dgvConteudos.AllowUserToResizeRows = false;
             this.dgvConteudos.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dgvConteudos.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvConteudos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvConteudos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.dgvConteudos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvConteudos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.clConteudo,
@@ -533,6 +535,7 @@
             this.Name = "UcCronogramas";
             this.Size = new System.Drawing.Size(718, 558);
             this.Load += new System.EventHandler(this.UcCronogramas_Load);
+            this.Resize += new System.EventHandler(this.UcCronogramas_Resize);
             ((System.ComponentModel.ISupportInitialize)(this.dgCronogramas)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

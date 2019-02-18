@@ -23,33 +23,37 @@ namespace apEstudante
         private void UcFlashcards_Load(object sender, EventArgs e)
         {
             txtDefinicao.Location = new Point(148, 98);
-            StreamReader arquivo = new StreamReader(caminhoFlashcards);
-            while (!arquivo.EndOfStream)
-            {
-                string linha = arquivo.ReadLine();
-                string categoria = linha.Substring(0, 30).Trim();
-                categorias.Add(new CategoriaFlashcard(categoria));
-                lsbCategorias.Items.Add(categoria);
-                cbxCategoria.Items.Add(categoria);
-                cbxExibirCategoria.Items.Add(categoria);
-                txtMateria_TextChanged(this, new EventArgs());
-                gbNovoFlashcard.Enabled = true;
 
-                for (int i = 0; i < (linha.Length - 30) / 121; i++)
+            if (Directory.Exists(caminhoFlashcards))
+            {
+                StreamReader arquivo = new StreamReader(caminhoFlashcards);
+                while (!arquivo.EndOfStream)
                 {
-                    int indiceComeco = 30 + i * (linha.Length - 30);
-                    string palavraChave = linha.Substring(indiceComeco, 30).Trim();
-                    bool usaImagem = linha[indiceComeco + 30] == '1';
-                    if (!usaImagem)
+                    string linha = arquivo.ReadLine();
+                    string categoria = linha.Substring(0, 30).Trim();
+                    categorias.Add(new CategoriaFlashcard(categoria));
+                    lsbCategorias.Items.Add(categoria);
+                    cbxCategoria.Items.Add(categoria);
+                    cbxExibirCategoria.Items.Add(categoria);
+                    txtMateria_TextChanged(this, new EventArgs());
+                    gbNovoFlashcard.Enabled = true;
+
+                    for (int i = 0; i < (linha.Length - 30) / 121; i++)
                     {
-                        string definicao = linha.Substring(indiceComeco + 31).Trim();
-                        categorias[categorias.Count - 1].flashcards.Add(new Flashcard(palavraChave, definicao));
+                        int indiceComeco = 30 + i * (linha.Length - 30);
+                        string palavraChave = linha.Substring(indiceComeco, 30).Trim();
+                        bool usaImagem = linha[indiceComeco + 30] == '1';
+                        if (!usaImagem)
+                        {
+                            string definicao = linha.Substring(indiceComeco + 31).Trim();
+                            categorias[categorias.Count - 1].flashcards.Add(new Flashcard(palavraChave, definicao));
+                        }
+                        else
+                            categorias[categorias.Count - 1].flashcards.Add(new Flashcard(palavraChave, new Bitmap(1, 1)));
                     }
-                    else
-                        categorias[categorias.Count - 1].flashcards.Add(new Flashcard(palavraChave, new Bitmap(1, 1)));
                 }
+                arquivo.Close();
             }
-            arquivo.Close();
         }
 
         private void rbImagem_CheckedChanged(object sender, EventArgs e)

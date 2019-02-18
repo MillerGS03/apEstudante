@@ -120,6 +120,8 @@ namespace apEstudante
 
             try
             {
+                btnRemoverSelecionado.Enabled = false;
+
                 int indiceLinha = dgCronogramas.SelectedCells[0].OwningRow.Index;
                 for (int i = 0; i < materiasCronograma.Count; i++)
                     if (materiasCronograma[i].Dia == CodigoDoDia(dgCronogramas.Rows[0].Cells[dgCronogramas.SelectedCells[0].ColumnIndex].OwningColumn.HeaderCell.Value.ToString()) &&
@@ -129,26 +131,30 @@ namespace apEstudante
                 // Remover linha se não tiver mais nenhuma matéria
                 bool linhaVazia = true;
                 for (int c = 0; c < dgCronogramas.ColumnCount; c++)
-                    if (dgCronogramas.Rows[indiceLinha].Cells[c].Value != null)
-                        if (dgCronogramas.Rows[indiceLinha].Cells[c].Value.ToString() != "")
-                        {
-                            linhaVazia = false;
-                            break;
-                        }
+                    if (dgCronogramas.Rows[indiceLinha].Cells[c].Value != null && dgCronogramas.Rows[indiceLinha].Cells[c].Value.ToString() != "")
+                    {
+                        linhaVazia = false;
+                        break;
+                    }
                 if (linhaVazia)
                     dgCronogramas.Rows.RemoveAt(indiceLinha);
             }
             catch { }
-            txtHorario.Text += " ";
-            txtHorario.Text = txtHorario.Text.Trim();
+
+            VerificarInformacoes();
         }
 
         public void Adicionar(string horario, string nomeMateria, string dia)
         {
             if (horario.IndexOf(':') == 1)
-            {
                 horario = 0 + horario;
-            }
+
+            foreach (MateriaCr materia in materiasCronograma)
+                if (materia.Horario == horario && materia.Dia == CodigoDoDia(dia))
+                {
+                    materia.Nome = nomeMateria;
+                    return;
+                }
             MateriaCr novaMateria = new MateriaCr(nomeMateria, horario, CodigoDoDia(dia));
             materiasCronograma.Add(novaMateria);
             btnAdicionar.Enabled = false;
@@ -225,8 +231,8 @@ namespace apEstudante
             Adicionar(horario, nomeMateria, dia);
             btnAdicionar.Text = "Adicionar";
         }
-
-        private void txtHorario_TextChanged(object sender, EventArgs e)
+    
+        private void VerificarInformacoes()
         {
             try
             {
@@ -241,10 +247,9 @@ namespace apEstudante
                 for (int i = 0; i < materiasCronograma.Count; i++)
                     if (materiasCronograma[i].Dia == CodigoDoDia(cbxDia.SelectedItem.ToString()) && materiasCronograma[i].Horario == horarioATestar)
                         existe = true;
-                if (cbxDia.SelectedIndex >= 0 && cbxDia.SelectedIndex < 7 && txtMateria.Text.Trim() != "" && !existe)
-                    btnAdicionar.Enabled = true;
-                else
-                    btnAdicionar.Enabled = false;
+
+                btnAdicionar.Enabled = cbxDia.SelectedIndex >= 0 && cbxDia.SelectedIndex < 7 && (existe || txtMateria.Text.Trim() != "");
+                btnAdicionar.Text = existe ? "Atualizar" : "Adicionar";
             }
             catch
             {
@@ -252,18 +257,18 @@ namespace apEstudante
                 btnAdicionar.Text = "Adicionar";
             }
         }
+        private void txtHorario_TextChanged(object sender, EventArgs e)
+        {
+            VerificarInformacoes();
+        }
         private void cbxDia_SelectedIndexChanged(object sender, EventArgs e)
         {
-            txtHorario.Text += " ";
-            txtHorario.Text = txtHorario.Text.Trim();
+            VerificarInformacoes();
         }
         private void txtMateria_TextChanged(object sender, EventArgs e)
         {
             if (btnAdicionar.Text == "Adicionar" || txtMateria.Text.Trim() == "")
-            {
-                txtHorario.Text += " ";
-                txtHorario.Text = txtHorario.Text.Trim();
-            }
+                VerificarInformacoes();
             else
                 btnAdicionar.Enabled = true;
         }
@@ -431,6 +436,34 @@ namespace apEstudante
                 chkNegrito.Enabled = false;
                 btnAdicionarConteudo.Enabled = false;
             }
+        }
+
+        private void UcCronogramas_Resize(object sender, EventArgs e)
+        {
+            label1.Left = (Width - label1.Width) / 2;
+
+            int tamanhoColunas = (dgCronogramas.Width - 82) / 7;
+            for (int i = 0; i < 7; i++)
+                dgCronogramas.Columns[i].Width = tamanhoColunas;
+        }
+
+        private void dgCronogramas_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            string horario = (dgCronogramas.Rows[e.RowIndex].HeaderCell.Value).ToString();
+            object valor = dgCronogramas.Rows[e.RowIndex].Cells[e.ColumnIndex].Value;
+            string nomeMateria = valor == null ? "" : valor.ToString();
+            string dia = cbxDia.Items[e.ColumnIndex].ToString();
+
+            if (nomeMateria.Trim() == "")
+                btnRemoverSelecionado.PerformClick();
+            else
+                Adicionar(horario, nomeMateria, dia);
+        }
+
+        private void dgCronogramas_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Delete)
+                btnRemoverSelecionado.PerformClick();
         }
     }
 }

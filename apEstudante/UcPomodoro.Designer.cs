@@ -66,6 +66,7 @@
             // 
             // panel1
             // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel1.BackgroundImage")));
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.panel1.Location = new System.Drawing.Point(511, 164);
@@ -89,11 +90,13 @@
             // 
             // barra
             // 
+            this.barra.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.barra.Location = new System.Drawing.Point(31, 34);
             this.barra.Maximum = 1500;
             this.barra.Name = "barra";
             this.barra.Size = new System.Drawing.Size(360, 37);
-            this.barra.Step = 1;
+            this.barra.Step = 300;
             this.barra.TabIndex = 5;
             // 
             // lbl0
@@ -107,6 +110,7 @@
             // 
             // lbl5
             // 
+            this.lbl5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lbl5.AutoSize = true;
             this.lbl5.Location = new System.Drawing.Point(373, 8);
             this.lbl5.Name = "lbl5";
@@ -126,7 +130,7 @@
             // lbl2
             // 
             this.lbl2.AutoSize = true;
-            this.lbl2.Location = new System.Drawing.Point(157, 8);
+            this.lbl2.Location = new System.Drawing.Point(159, 8);
             this.lbl2.Name = "lbl2";
             this.lbl2.Size = new System.Drawing.Size(32, 22);
             this.lbl2.TabIndex = 9;
@@ -152,6 +156,8 @@
             // 
             // lblStatus
             // 
+            this.lblStatus.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblStatus.Font = new System.Drawing.Font("Century Gothic", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblStatus.Location = new System.Drawing.Point(0, 49);
             this.lblStatus.Name = "lblStatus";
@@ -162,6 +168,8 @@
             // 
             // lblSubStatus
             // 
+            this.lblSubStatus.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblSubStatus.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSubStatus.Location = new System.Drawing.Point(0, 81);
             this.lblSubStatus.Name = "lblSubStatus";
@@ -177,6 +185,8 @@
             // 
             // pnlBarra
             // 
+            this.pnlBarra.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlBarra.Controls.Add(this.barra);
             this.pnlBarra.Controls.Add(this.lbl0);
             this.pnlBarra.Controls.Add(this.lbl5);
@@ -222,26 +232,33 @@
             // 
             // lblCiclosRealizados
             // 
-            this.lblCiclosRealizados.AutoSize = true;
+            this.lblCiclosRealizados.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblCiclosRealizados.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCiclosRealizados.Location = new System.Drawing.Point(134, 264);
+            this.lblCiclosRealizados.Location = new System.Drawing.Point(47, 266);
             this.lblCiclosRealizados.Name = "lblCiclosRealizados";
-            this.lblCiclosRealizados.Size = new System.Drawing.Size(238, 28);
+            this.lblCiclosRealizados.Size = new System.Drawing.Size(430, 28);
             this.lblCiclosRealizados.TabIndex = 17;
             this.lblCiclosRealizados.Text = "Ciclos realizados: 0";
+            this.lblCiclosRealizados.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblRestantes
             // 
-            this.lblRestantes.AutoSize = true;
+            this.lblRestantes.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblRestantes.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRestantes.Location = new System.Drawing.Point(43, 293);
+            this.lblRestantes.Location = new System.Drawing.Point(43, 295);
             this.lblRestantes.Name = "lblRestantes";
             this.lblRestantes.Size = new System.Drawing.Size(434, 24);
             this.lblRestantes.TabIndex = 18;
             this.lblRestantes.Text = "4 restantes até o próximo intervalo longo.";
+            this.lblRestantes.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // textBox1
             // 
+            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox1.BackColor = System.Drawing.Color.DarkGoldenrod;
             this.textBox1.Location = new System.Drawing.Point(47, 397);
             this.textBox1.Multiline = true;
@@ -251,13 +268,15 @@
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(212, 370);
+            this.label2.Location = new System.Drawing.Point(47, 370);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(84, 25);
+            this.label2.Size = new System.Drawing.Size(430, 25);
             this.label2.TabIndex = 20;
             this.label2.Text = "Tarefas";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // UcPomodoro
             // 
@@ -277,6 +296,7 @@
             this.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "UcPomodoro";
             this.Size = new System.Drawing.Size(718, 558);
+            this.Resize += new System.EventHandler(this.UcPomodoro_Resize);
             this.pnlBarra.ResumeLayout(false);
             this.pnlBarra.PerformLayout();
             this.ResumeLayout(false);

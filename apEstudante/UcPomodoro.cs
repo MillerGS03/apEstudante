@@ -13,7 +13,7 @@ namespace apEstudante
 {
     public partial class UcPomodoro : UserControl
     {
-        private enum Status { Parado, Rodando, IntervaloCurto, IntervaloLongo, EsperandoIntervalo, EsperandoRodar};
+        private enum Status { Parado, Rodando, IntervaloCurto, IntervaloLongo, EsperandoIntervalo, EsperandoRodar };
         private Status status = Status.Parado;
         private int qtosCiclosFeitos = 0;
         private SoundPlayer tocaAlarme = new SoundPlayer(Properties.Resources.old_fashioned_door_bell_daniel_simon);
@@ -44,8 +44,8 @@ namespace apEstudante
 
             if (status == Status.Parado || status == Status.EsperandoRodar)
             {
-                lbl1.Left = 92;
-                lbl2.Left = 157;
+                lbl1.Left = barra.Left + barra.Width / 5 - lbl1.Width / 2;
+                lbl2.Left = barra.Left + 2 * barra.Width / 5 - lbl2.Width / 2;
                 Label lblEncontrada = null;
                 for (int i = 0; i <= 5; i++)
                 {
@@ -70,8 +70,8 @@ namespace apEstudante
                     lblSubStatus.Text = "Descanse! Pode esticar suas pernas e beber uma água.";
                     barra.Maximum = 300;
 
-                    lbl1.Left = 92;
-                    lbl2.Left = 157;
+                    lbl1.Left = barra.Left + barra.Width / 5 - lbl1.Width / 2;
+                    lbl2.Left = barra.Left + 2 * barra.Width / 5 - lbl2.Width / 2;
                     Label lblEncontrada = null;
                     for (int i = 0; i <= 5; i++)
                     {
@@ -86,8 +86,8 @@ namespace apEstudante
                     lblSubStatus.Text = "Descanse! Use esse tempo maior para refrescar sua cabeça.";
                     barra.Maximum = 900;
 
-                    lbl1.Left = 140;
-                    lbl2.Left = 253;
+                    lbl1.Left = barra.Left + barra.Width / 3 - lbl1.Width /2 ;
+                    lbl2.Left = barra.Left + 2 * barra.Width / 3 - lbl2.Width / 2;
                     lbl1.Text = "5";
                     lbl2.Text = "10";
                     lbl3.Hide();
@@ -113,7 +113,7 @@ namespace apEstudante
                 {
                     status = Status.EsperandoIntervalo;
                     lblStatus.Text = "Status: Ciclo terminado";
-                    lblSubStatus.Text = "Aperte \"Iniciar\" para entrar no intervalo!";               
+                    lblSubStatus.Text = "Aperte \"Iniciar\" para entrar no intervalo!";
                 }
                 else
                 {
@@ -174,6 +174,26 @@ namespace apEstudante
                     lblStatus.Text = "Status: Rodando";
                     lblSubStatus.Text = "Concentre-se em suas tarefas!";
                 }
+            }
+        }
+
+        private void UcPomodoro_Resize(object sender, EventArgs e)
+        {
+            btnIniciar.Left = (Width - btnIniciar.Width) / 2;
+            btnPausar.Left = (Width - btnIniciar.Width) / 2 - 67;
+            btnParar.Left = (Width - btnIniciar.Width) / 2 + 84;
+
+            if (!lbl3.Visible)
+            {
+                lbl1.Left = barra.Left + barra.Width / 3 - lbl1.Width / 2;
+                lbl2.Left = barra.Left + 2 * barra.Width / 3 - lbl2.Width / 2;
+            }
+            else
+            {
+                lbl1.Left = barra.Left + barra.Width / 5 - lbl1.Width / 2;
+                lbl2.Left = barra.Left + 2 * barra.Width / 5 - lbl2.Width / 2;
+                lbl3.Left = barra.Left + 3 * barra.Width / 5 - lbl3.Width / 2;
+                lbl4.Left = barra.Left + 4 * barra.Width / 5 - lbl4.Width / 2;
             }
         }
     }
