@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UcCronogramas));
             this.label1 = new System.Windows.Forms.Label();
             this.dgCronogramas = new System.Windows.Forms.DataGridView();
@@ -53,6 +53,13 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.pnlLista = new System.Windows.Forms.Panel();
+            this.switcher1 = new apAplicativos.Switcher();
+            this.btnCheckUncheck = new System.Windows.Forms.Button();
+            this.btnRemoverConteudo = new System.Windows.Forms.Button();
+            this.dgvConteudos = new System.Windows.Forms.DataGridView();
+            this.clConteudo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clFeito = new System.Windows.Forms.DataGridViewImageColumn();
             this.pnlControleDaLista = new System.Windows.Forms.Panel();
             this.btnRemoverMateria = new System.Windows.Forms.Button();
             this.btnAdicionarMateria2 = new System.Windows.Forms.Button();
@@ -62,22 +69,15 @@
             this.txtMateria2 = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.btnAdicionarConteudo = new System.Windows.Forms.Button();
-            this.pnlLista = new System.Windows.Forms.Panel();
-            this.switcher1 = new apAplicativos.Switcher();
-            this.btnCheckUncheck = new System.Windows.Forms.Button();
-            this.btnRemoverConteudo = new System.Windows.Forms.Button();
-            this.dgvConteudos = new System.Windows.Forms.DataGridView();
-            this.clConteudo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clFeito = new System.Windows.Forms.DataGridViewImageColumn();
             this.imlChecked = new System.Windows.Forms.ImageList(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgCronogramas)).BeginInit();
             this.gbAdicionar.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
-            this.pnlControleDaLista.SuspendLayout();
             this.pnlLista.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvConteudos)).BeginInit();
+            this.pnlControleDaLista.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -98,14 +98,14 @@
             this.dgCronogramas.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgCronogramas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgCronogramas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dgCronogramas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgCronogramas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.clDomingo,
@@ -304,6 +304,7 @@
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(733, 550);
             this.tabControl1.TabIndex = 9;
+            this.tabControl1.Click += new System.EventHandler(this.tabPage2_Click);
             // 
             // tabPage1
             // 
@@ -320,8 +321,8 @@
             // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.pnlControleDaLista);
             this.tabPage2.Controls.Add(this.pnlLista);
+            this.tabPage2.Controls.Add(this.pnlControleDaLista);
             this.tabPage2.Location = new System.Drawing.Point(4, 31);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
@@ -330,6 +331,115 @@
             this.tabPage2.Text = "Matérias";
             this.tabPage2.UseVisualStyleBackColor = true;
             this.tabPage2.Click += new System.EventHandler(this.tabPage2_Click);
+            this.tabPage2.Enter += new System.EventHandler(this.tabPage2_Click);
+            // 
+            // pnlLista
+            // 
+            this.pnlLista.Controls.Add(this.switcher1);
+            this.pnlLista.Controls.Add(this.btnCheckUncheck);
+            this.pnlLista.Controls.Add(this.btnRemoverConteudo);
+            this.pnlLista.Controls.Add(this.dgvConteudos);
+            this.pnlLista.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlLista.Location = new System.Drawing.Point(3, 3);
+            this.pnlLista.Name = "pnlLista";
+            this.pnlLista.Size = new System.Drawing.Size(408, 509);
+            this.pnlLista.TabIndex = 21;
+            // 
+            // switcher1
+            // 
+            this.switcher1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.switcher1.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.switcher1.Location = new System.Drawing.Point(2, 1);
+            this.switcher1.Margin = new System.Windows.Forms.Padding(6);
+            this.switcher1.Name = "switcher1";
+            this.switcher1.Size = new System.Drawing.Size(404, 48);
+            this.switcher1.TabIndex = 17;
+            this.switcher1.IndiceAtualMudou += new System.EventHandler<System.EventArgs>(this.switcher1_IndiceAtualMudou);
+            // 
+            // btnCheckUncheck
+            // 
+            this.btnCheckUncheck.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCheckUncheck.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnCheckUncheck.Enabled = false;
+            this.btnCheckUncheck.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.btnCheckUncheck.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCheckUncheck.ForeColor = System.Drawing.Color.White;
+            this.btnCheckUncheck.Location = new System.Drawing.Point(2, 469);
+            this.btnCheckUncheck.Name = "btnCheckUncheck";
+            this.btnCheckUncheck.Size = new System.Drawing.Size(194, 40);
+            this.btnCheckUncheck.TabIndex = 4;
+            this.btnCheckUncheck.Text = "Check";
+            this.btnCheckUncheck.UseVisualStyleBackColor = false;
+            this.btnCheckUncheck.Click += new System.EventHandler(this.btnCheckUncheck_Click);
+            // 
+            // btnRemoverConteudo
+            // 
+            this.btnRemoverConteudo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnRemoverConteudo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnRemoverConteudo.Enabled = false;
+            this.btnRemoverConteudo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.btnRemoverConteudo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRemoverConteudo.ForeColor = System.Drawing.Color.White;
+            this.btnRemoverConteudo.Location = new System.Drawing.Point(211, 469);
+            this.btnRemoverConteudo.Name = "btnRemoverConteudo";
+            this.btnRemoverConteudo.Size = new System.Drawing.Size(195, 40);
+            this.btnRemoverConteudo.TabIndex = 5;
+            this.btnRemoverConteudo.Text = "Remover";
+            this.btnRemoverConteudo.UseVisualStyleBackColor = false;
+            this.btnRemoverConteudo.Click += new System.EventHandler(this.btnRemoverConteudo_Click);
+            // 
+            // dgvConteudos
+            // 
+            this.dgvConteudos.AllowUserToAddRows = false;
+            this.dgvConteudos.AllowUserToDeleteRows = false;
+            this.dgvConteudos.AllowUserToResizeColumns = false;
+            this.dgvConteudos.AllowUserToResizeRows = false;
+            this.dgvConteudos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvConteudos.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.dgvConteudos.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvConteudos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            this.dgvConteudos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvConteudos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.clConteudo,
+            this.clFeito});
+            this.dgvConteudos.Location = new System.Drawing.Point(2, 59);
+            this.dgvConteudos.Name = "dgvConteudos";
+            this.dgvConteudos.ReadOnly = true;
+            this.dgvConteudos.RowHeadersVisible = false;
+            this.dgvConteudos.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.dgvConteudos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvConteudos.Size = new System.Drawing.Size(404, 404);
+            this.dgvConteudos.TabIndex = 18;
+            this.dgvConteudos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvConteudos_CellClick);
+            // 
+            // clConteudo
+            // 
+            this.clConteudo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.clConteudo.HeaderText = "Conteúdo";
+            this.clConteudo.Name = "clConteudo";
+            this.clConteudo.ReadOnly = true;
+            this.clConteudo.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // clFeito
+            // 
+            this.clFeito.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.clFeito.HeaderText = "✓";
+            this.clFeito.Image = ((System.Drawing.Image)(resources.GetObject("clFeito.Image")));
+            this.clFeito.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.clFeito.Name = "clFeito";
+            this.clFeito.ReadOnly = true;
+            this.clFeito.Width = 50;
             // 
             // pnlControleDaLista
             // 
@@ -455,115 +565,6 @@
             this.btnAdicionarConteudo.UseVisualStyleBackColor = false;
             this.btnAdicionarConteudo.Click += new System.EventHandler(this.btnAdicionarConteudo_Click);
             // 
-            // pnlLista
-            // 
-            this.pnlLista.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.pnlLista.Controls.Add(this.switcher1);
-            this.pnlLista.Controls.Add(this.btnCheckUncheck);
-            this.pnlLista.Controls.Add(this.btnRemoverConteudo);
-            this.pnlLista.Controls.Add(this.dgvConteudos);
-            this.pnlLista.Location = new System.Drawing.Point(3, 1);
-            this.pnlLista.Name = "pnlLista";
-            this.pnlLista.Size = new System.Drawing.Size(409, 514);
-            this.pnlLista.TabIndex = 21;
-            // 
-            // switcher1
-            // 
-            this.switcher1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.switcher1.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.switcher1.Location = new System.Drawing.Point(2, 1);
-            this.switcher1.Margin = new System.Windows.Forms.Padding(6);
-            this.switcher1.Name = "switcher1";
-            this.switcher1.Size = new System.Drawing.Size(405, 48);
-            this.switcher1.TabIndex = 17;
-            this.switcher1.IndiceAtualMudou += new System.EventHandler<System.EventArgs>(this.switcher1_IndiceAtualMudou);
-            // 
-            // btnCheckUncheck
-            // 
-            this.btnCheckUncheck.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCheckUncheck.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btnCheckUncheck.Enabled = false;
-            this.btnCheckUncheck.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.btnCheckUncheck.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCheckUncheck.ForeColor = System.Drawing.Color.White;
-            this.btnCheckUncheck.Location = new System.Drawing.Point(2, 474);
-            this.btnCheckUncheck.Name = "btnCheckUncheck";
-            this.btnCheckUncheck.Size = new System.Drawing.Size(195, 40);
-            this.btnCheckUncheck.TabIndex = 4;
-            this.btnCheckUncheck.Text = "Check";
-            this.btnCheckUncheck.UseVisualStyleBackColor = false;
-            this.btnCheckUncheck.Click += new System.EventHandler(this.btnCheckUncheck_Click);
-            // 
-            // btnRemoverConteudo
-            // 
-            this.btnRemoverConteudo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnRemoverConteudo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btnRemoverConteudo.Enabled = false;
-            this.btnRemoverConteudo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.btnRemoverConteudo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRemoverConteudo.ForeColor = System.Drawing.Color.White;
-            this.btnRemoverConteudo.Location = new System.Drawing.Point(212, 474);
-            this.btnRemoverConteudo.Name = "btnRemoverConteudo";
-            this.btnRemoverConteudo.Size = new System.Drawing.Size(195, 40);
-            this.btnRemoverConteudo.TabIndex = 5;
-            this.btnRemoverConteudo.Text = "Remover";
-            this.btnRemoverConteudo.UseVisualStyleBackColor = false;
-            this.btnRemoverConteudo.Click += new System.EventHandler(this.btnRemoverConteudo_Click);
-            // 
-            // dgvConteudos
-            // 
-            this.dgvConteudos.AllowUserToAddRows = false;
-            this.dgvConteudos.AllowUserToDeleteRows = false;
-            this.dgvConteudos.AllowUserToResizeColumns = false;
-            this.dgvConteudos.AllowUserToResizeRows = false;
-            this.dgvConteudos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgvConteudos.BackgroundColor = System.Drawing.SystemColors.Control;
-            this.dgvConteudos.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvConteudos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
-            this.dgvConteudos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvConteudos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.clConteudo,
-            this.clFeito});
-            this.dgvConteudos.Location = new System.Drawing.Point(2, 59);
-            this.dgvConteudos.Name = "dgvConteudos";
-            this.dgvConteudos.ReadOnly = true;
-            this.dgvConteudos.RowHeadersVisible = false;
-            this.dgvConteudos.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.dgvConteudos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvConteudos.Size = new System.Drawing.Size(405, 409);
-            this.dgvConteudos.TabIndex = 18;
-            this.dgvConteudos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvConteudos_CellClick);
-            // 
-            // clConteudo
-            // 
-            this.clConteudo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.clConteudo.HeaderText = "Conteúdo";
-            this.clConteudo.Name = "clConteudo";
-            this.clConteudo.ReadOnly = true;
-            this.clConteudo.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // clFeito
-            // 
-            this.clFeito.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.clFeito.HeaderText = "✓";
-            this.clFeito.Image = ((System.Drawing.Image)(resources.GetObject("clFeito.Image")));
-            this.clFeito.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.clFeito.Name = "clFeito";
-            this.clFeito.ReadOnly = true;
-            this.clFeito.Width = 50;
-            // 
             // imlChecked
             // 
             this.imlChecked.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imlChecked.ImageStream")));
@@ -588,10 +589,10 @@
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
-            this.pnlControleDaLista.ResumeLayout(false);
-            this.pnlControleDaLista.PerformLayout();
             this.pnlLista.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvConteudos)).EndInit();
+            this.pnlControleDaLista.ResumeLayout(false);
+            this.pnlControleDaLista.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 

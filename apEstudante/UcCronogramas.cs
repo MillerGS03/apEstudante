@@ -437,6 +437,9 @@ namespace apEstudante
             dgvConteudos.ClearSelection();
             btnRemoverConteudo.Enabled = false;
             btnCheckUncheck.Enabled = false;
+            btnCheckUncheck.Width = pnlLista.Width / 2 - 7;
+            btnRemoverConteudo.Width = btnCheckUncheck.Width;
+            btnRemoverConteudo.Left = pnlLista.Width - btnRemoverConteudo.Width - 2;
         }
 
         private void btnRemoverMateria_Click(object sender, EventArgs e)
@@ -464,14 +467,10 @@ namespace apEstudante
 
             gbAdicionar.Left = (Width - gbAdicionar.Width) / 2;
             btnRemoverSelecionado.Left = (Width - btnRemoverSelecionado.Width) / 2;
+
             pnlControleDaLista.Width = 311 + (Width - 718) / 3;
             if (pnlControleDaLista.Width > 468)
-            {
                 pnlControleDaLista.Width = 468;
-                pnlLista.Width = tabPage2.Width - 473;
-            }
-            else
-                pnlLista.Width = 409 + 2 * (Width - 718) / 3;
 
             btnCheckUncheck.Width = pnlLista.Width / 2 - 7;
             btnRemoverConteudo.Width = btnCheckUncheck.Width;

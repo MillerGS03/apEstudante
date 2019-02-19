@@ -36,7 +36,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.gbAdicionarCategoria = new System.Windows.Forms.GroupBox();
             this.txtMateria = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.btnAdicionarCategoria = new System.Windows.Forms.Button();
@@ -45,7 +45,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnRemoverFlashcard = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lblCategoria = new System.Windows.Forms.Label();
             this.cbxExibirCategoria = new System.Windows.Forms.ComboBox();
             this.lsbFlashcards = new System.Windows.Forms.ListBox();
             this.gbNovoFlashcard = new System.Windows.Forms.GroupBox();
@@ -61,24 +61,33 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.ofdImgFlashcard = new System.Windows.Forms.OpenFileDialog();
+            this.pnlListaItens = new System.Windows.Forms.Panel();
+            this.pnlNovoFlashcard = new System.Windows.Forms.Panel();
+            this.pnlCategorias = new System.Windows.Forms.Panel();
             this.tabControl1.SuspendLayout();
             this.tpGerenciar.SuspendLayout();
-            this.groupBox2.SuspendLayout();
+            this.gbAdicionarCategoria.SuspendLayout();
             this.gbNovoFlashcard.SuspendLayout();
+            this.pnlListaItens.SuspendLayout();
+            this.pnlNovoFlashcard.SuspendLayout();
+            this.pnlCategorias.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(282, 2);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(154, 32);
             this.label1.TabIndex = 1;
             this.label1.Text = "Flashcards";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tabControl1
             // 
+            this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tpGerenciar);
             this.tabControl1.Location = new System.Drawing.Point(2, 8);
@@ -99,19 +108,11 @@
             // 
             // tpGerenciar
             // 
-            this.tpGerenciar.Controls.Add(this.label4);
+            this.tpGerenciar.Controls.Add(this.pnlCategorias);
+            this.tpGerenciar.Controls.Add(this.pnlNovoFlashcard);
+            this.tpGerenciar.Controls.Add(this.pnlListaItens);
             this.tpGerenciar.Controls.Add(this.panel3);
-            this.tpGerenciar.Controls.Add(this.label6);
-            this.tpGerenciar.Controls.Add(this.groupBox2);
-            this.tpGerenciar.Controls.Add(this.btnRemoverCategoria);
-            this.tpGerenciar.Controls.Add(this.lsbCategorias);
             this.tpGerenciar.Controls.Add(this.panel1);
-            this.tpGerenciar.Controls.Add(this.btnRemoverFlashcard);
-            this.tpGerenciar.Controls.Add(this.label3);
-            this.tpGerenciar.Controls.Add(this.label2);
-            this.tpGerenciar.Controls.Add(this.cbxExibirCategoria);
-            this.tpGerenciar.Controls.Add(this.lsbFlashcards);
-            this.tpGerenciar.Controls.Add(this.gbNovoFlashcard);
             this.tpGerenciar.Location = new System.Drawing.Point(4, 31);
             this.tpGerenciar.Name = "tpGerenciar";
             this.tpGerenciar.Padding = new System.Windows.Forms.Padding(3);
@@ -120,19 +121,23 @@
             this.tpGerenciar.Text = "Gerenciar";
             this.tpGerenciar.UseVisualStyleBackColor = true;
             this.tpGerenciar.Click += new System.EventHandler(this.tpGerenciar_Click);
+            this.tpGerenciar.Resize += new System.EventHandler(this.tpGerenciar_Resize);
             // 
             // label4
             // 
-            this.label4.AutoSize = true;
+            this.label4.Dock = System.Windows.Forms.DockStyle.Top;
             this.label4.Font = new System.Drawing.Font("Century Gothic", 16.5F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
-            this.label4.Location = new System.Drawing.Point(403, 268);
+            this.label4.Location = new System.Drawing.Point(0, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(131, 27);
+            this.label4.Size = new System.Drawing.Size(466, 27);
             this.label4.TabIndex = 31;
             this.label4.Text = "Categorias";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel3
             // 
+            this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel3.BackColor = System.Drawing.Color.Black;
             this.panel3.Location = new System.Drawing.Point(242, 267);
             this.panel3.Name = "panel3";
@@ -141,24 +146,25 @@
             // 
             // label6
             // 
-            this.label6.AutoSize = true;
+            this.label6.Dock = System.Windows.Forms.DockStyle.Top;
             this.label6.Font = new System.Drawing.Font("Century Gothic", 16.5F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
-            this.label6.Location = new System.Drawing.Point(391, 2);
+            this.label6.Location = new System.Drawing.Point(0, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(179, 27);
+            this.label6.Size = new System.Drawing.Size(466, 27);
             this.label6.TabIndex = 32;
             this.label6.Text = "Novo Flashcard";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // groupBox2
+            // gbAdicionarCategoria
             // 
-            this.groupBox2.Controls.Add(this.txtMateria);
-            this.groupBox2.Controls.Add(this.label5);
-            this.groupBox2.Controls.Add(this.btnAdicionarCategoria);
-            this.groupBox2.Location = new System.Drawing.Point(442, 324);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(265, 114);
-            this.groupBox2.TabIndex = 33;
-            this.groupBox2.TabStop = false;
+            this.gbAdicionarCategoria.Controls.Add(this.txtMateria);
+            this.gbAdicionarCategoria.Controls.Add(this.label5);
+            this.gbAdicionarCategoria.Controls.Add(this.btnAdicionarCategoria);
+            this.gbAdicionarCategoria.Location = new System.Drawing.Point(196, 51);
+            this.gbAdicionarCategoria.Name = "gbAdicionarCategoria";
+            this.gbAdicionarCategoria.Size = new System.Drawing.Size(265, 114);
+            this.gbAdicionarCategoria.TabIndex = 33;
+            this.gbAdicionarCategoria.TabStop = false;
             // 
             // txtMateria
             // 
@@ -195,12 +201,13 @@
             // 
             // btnRemoverCategoria
             // 
+            this.btnRemoverCategoria.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnRemoverCategoria.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnRemoverCategoria.Enabled = false;
             this.btnRemoverCategoria.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.btnRemoverCategoria.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRemoverCategoria.ForeColor = System.Drawing.Color.White;
-            this.btnRemoverCategoria.Location = new System.Drawing.Point(253, 467);
+            this.btnRemoverCategoria.Location = new System.Drawing.Point(7, 203);
             this.btnRemoverCategoria.Name = "btnRemoverCategoria";
             this.btnRemoverCategoria.Size = new System.Drawing.Size(186, 35);
             this.btnRemoverCategoria.TabIndex = 41;
@@ -210,9 +217,11 @@
             // 
             // lsbCategorias
             // 
+            this.lsbCategorias.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.lsbCategorias.FormattingEnabled = true;
             this.lsbCategorias.ItemHeight = 22;
-            this.lsbCategorias.Location = new System.Drawing.Point(253, 299);
+            this.lsbCategorias.Location = new System.Drawing.Point(7, 35);
             this.lsbCategorias.Name = "lsbCategorias";
             this.lsbCategorias.Size = new System.Drawing.Size(186, 158);
             this.lsbCategorias.TabIndex = 40;
@@ -220,6 +229,8 @@
             // 
             // panel1
             // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.Color.Black;
             this.panel1.Location = new System.Drawing.Point(241, -2);
             this.panel1.Name = "panel1";
@@ -228,12 +239,14 @@
             // 
             // btnRemoverFlashcard
             // 
+            this.btnRemoverFlashcard.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.btnRemoverFlashcard.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnRemoverFlashcard.Enabled = false;
             this.btnRemoverFlashcard.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.btnRemoverFlashcard.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRemoverFlashcard.ForeColor = System.Drawing.Color.White;
-            this.btnRemoverFlashcard.Location = new System.Drawing.Point(9, 467);
+            this.btnRemoverFlashcard.Location = new System.Drawing.Point(9, 469);
             this.btnRemoverFlashcard.Name = "btnRemoverFlashcard";
             this.btnRemoverFlashcard.Size = new System.Drawing.Size(224, 35);
             this.btnRemoverFlashcard.TabIndex = 38;
@@ -243,28 +256,31 @@
             // 
             // label3
             // 
-            this.label3.AutoSize = true;
+            this.label3.Dock = System.Windows.Forms.DockStyle.Top;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 16.5F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
-            this.label3.Location = new System.Drawing.Point(87, 2);
+            this.label3.Location = new System.Drawing.Point(0, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(62, 27);
+            this.label3.Size = new System.Drawing.Size(238, 27);
             this.label3.TabIndex = 37;
             this.label3.Text = "Itens";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label2
+            // lblCategoria
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(66, 37);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(104, 22);
-            this.label2.TabIndex = 36;
-            this.label2.Text = "Categoria";
+            this.lblCategoria.Location = new System.Drawing.Point(9, 36);
+            this.lblCategoria.Name = "lblCategoria";
+            this.lblCategoria.Size = new System.Drawing.Size(223, 22);
+            this.lblCategoria.TabIndex = 36;
+            this.lblCategoria.Text = "Categoria";
+            this.lblCategoria.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // cbxExibirCategoria
             // 
+            this.cbxExibirCategoria.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.cbxExibirCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxExibirCategoria.FormattingEnabled = true;
-            this.cbxExibirCategoria.Location = new System.Drawing.Point(9, 62);
+            this.cbxExibirCategoria.Location = new System.Drawing.Point(9, 61);
             this.cbxExibirCategoria.Name = "cbxExibirCategoria";
             this.cbxExibirCategoria.Size = new System.Drawing.Size(224, 30);
             this.cbxExibirCategoria.TabIndex = 35;
@@ -272,9 +288,12 @@
             // 
             // lsbFlashcards
             // 
+            this.lsbFlashcards.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lsbFlashcards.FormattingEnabled = true;
             this.lsbFlashcards.ItemHeight = 22;
-            this.lsbFlashcards.Location = new System.Drawing.Point(9, 101);
+            this.lsbFlashcards.Location = new System.Drawing.Point(9, 100);
             this.lsbFlashcards.Name = "lsbFlashcards";
             this.lsbFlashcards.Size = new System.Drawing.Size(224, 356);
             this.lsbFlashcards.TabIndex = 34;
@@ -282,6 +301,9 @@
             // 
             // gbNovoFlashcard
             // 
+            this.gbNovoFlashcard.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.gbNovoFlashcard.Controls.Add(this.pnImagem);
             this.gbNovoFlashcard.Controls.Add(this.btnEscolherImagem);
             this.gbNovoFlashcard.Controls.Add(this.rbImagem);
@@ -294,9 +316,9 @@
             this.gbNovoFlashcard.Controls.Add(this.label8);
             this.gbNovoFlashcard.Controls.Add(this.label9);
             this.gbNovoFlashcard.Enabled = false;
-            this.gbNovoFlashcard.Location = new System.Drawing.Point(255, 17);
+            this.gbNovoFlashcard.Location = new System.Drawing.Point(3, 22);
             this.gbNovoFlashcard.Name = "gbNovoFlashcard";
-            this.gbNovoFlashcard.Size = new System.Drawing.Size(430, 245);
+            this.gbNovoFlashcard.Size = new System.Drawing.Size(459, 245);
             this.gbNovoFlashcard.TabIndex = 42;
             this.gbNovoFlashcard.TabStop = false;
             // 
@@ -367,6 +389,9 @@
             // 
             // txtDefinicao
             // 
+            this.txtDefinicao.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtDefinicao.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDefinicao.Location = new System.Drawing.Point(388, 98);
             this.txtDefinicao.MaxLength = 90;
@@ -378,6 +403,7 @@
             // 
             // btnAdicionarFlashcard
             // 
+            this.btnAdicionarFlashcard.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnAdicionarFlashcard.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnAdicionarFlashcard.Enabled = false;
             this.btnAdicionarFlashcard.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
@@ -426,6 +452,47 @@
             this.ofdImgFlashcard.FileName = "Flashcard";
             this.ofdImgFlashcard.Filter = "Arquivos de Imagem | *.png; *.jpg; *.jpeg; *.gif";
             // 
+            // pnlListaItens
+            // 
+            this.pnlListaItens.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlListaItens.Controls.Add(this.lsbFlashcards);
+            this.pnlListaItens.Controls.Add(this.cbxExibirCategoria);
+            this.pnlListaItens.Controls.Add(this.lblCategoria);
+            this.pnlListaItens.Controls.Add(this.label3);
+            this.pnlListaItens.Controls.Add(this.btnRemoverFlashcard);
+            this.pnlListaItens.Location = new System.Drawing.Point(3, 2);
+            this.pnlListaItens.Name = "pnlListaItens";
+            this.pnlListaItens.Size = new System.Drawing.Size(238, 509);
+            this.pnlListaItens.TabIndex = 44;
+            this.pnlListaItens.Click += new System.EventHandler(this.tpGerenciar_Click);
+            this.pnlListaItens.Resize += new System.EventHandler(this.pnlListaItens_Resize);
+            // 
+            // pnlNovoFlashcard
+            // 
+            this.pnlNovoFlashcard.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlNovoFlashcard.Controls.Add(this.label6);
+            this.pnlNovoFlashcard.Controls.Add(this.gbNovoFlashcard);
+            this.pnlNovoFlashcard.Location = new System.Drawing.Point(242, -1);
+            this.pnlNovoFlashcard.Name = "pnlNovoFlashcard";
+            this.pnlNovoFlashcard.Size = new System.Drawing.Size(466, 268);
+            this.pnlNovoFlashcard.TabIndex = 45;
+            this.pnlNovoFlashcard.Click += new System.EventHandler(this.tpGerenciar_Click);
+            // 
+            // pnlCategorias
+            // 
+            this.pnlCategorias.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlCategorias.Controls.Add(this.lsbCategorias);
+            this.pnlCategorias.Controls.Add(this.btnRemoverCategoria);
+            this.pnlCategorias.Controls.Add(this.label4);
+            this.pnlCategorias.Controls.Add(this.gbAdicionarCategoria);
+            this.pnlCategorias.Location = new System.Drawing.Point(242, 268);
+            this.pnlCategorias.Name = "pnlCategorias";
+            this.pnlCategorias.Size = new System.Drawing.Size(466, 247);
+            this.pnlCategorias.TabIndex = 46;
+            this.pnlCategorias.Click += new System.EventHandler(this.tpGerenciar_Click);
+            // 
             // UcFlashcards
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 22F);
@@ -437,15 +504,17 @@
             this.Name = "UcFlashcards";
             this.Size = new System.Drawing.Size(718, 558);
             this.Load += new System.EventHandler(this.UcFlashcards_Load);
+            this.Resize += new System.EventHandler(this.UcFlashcards_Resize);
             this.tabControl1.ResumeLayout(false);
             this.tpGerenciar.ResumeLayout(false);
-            this.tpGerenciar.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
+            this.gbAdicionarCategoria.ResumeLayout(false);
+            this.gbAdicionarCategoria.PerformLayout();
             this.gbNovoFlashcard.ResumeLayout(false);
             this.gbNovoFlashcard.PerformLayout();
+            this.pnlListaItens.ResumeLayout(false);
+            this.pnlNovoFlashcard.ResumeLayout(false);
+            this.pnlCategorias.ResumeLayout(false);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -458,7 +527,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox gbAdicionarCategoria;
         private System.Windows.Forms.TextBox txtMateria;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btnAdicionarCategoria;
@@ -467,7 +536,7 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnRemoverFlashcard;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblCategoria;
         private System.Windows.Forms.ComboBox cbxExibirCategoria;
         private System.Windows.Forms.ListBox lsbFlashcards;
         private System.Windows.Forms.GroupBox gbNovoFlashcard;
@@ -483,5 +552,8 @@
         private System.Windows.Forms.Button btnEscolherImagem;
         private System.Windows.Forms.OpenFileDialog ofdImgFlashcard;
         private System.Windows.Forms.Panel pnImagem;
+        private System.Windows.Forms.Panel pnlListaItens;
+        private System.Windows.Forms.Panel pnlNovoFlashcard;
+        private System.Windows.Forms.Panel pnlCategorias;
     }
 }

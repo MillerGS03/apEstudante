@@ -24,7 +24,7 @@ namespace apEstudante
         {
             txtDefinicao.Location = new Point(148, 98);
 
-            if (Directory.Exists(caminhoFlashcards))
+            if (File.Exists(caminhoFlashcards))
             {
                 StreamReader arquivo = new StreamReader(caminhoFlashcards);
                 while (!arquivo.EndOfStream)
@@ -202,6 +202,39 @@ namespace apEstudante
             categorias[cbxExibirCategoria.SelectedIndex].flashcards.RemoveAt(lsbFlashcards.SelectedIndex);
             lsbFlashcards.Items.RemoveAt(lsbFlashcards.SelectedIndex);
             txtPalavraChave_TextChanged(this, new EventArgs());
+        }
+
+        private void UcFlashcards_Resize(object sender, EventArgs e)
+        {
+            label1.Left = (Width - label1.Width) / 2;
+        }
+
+        private void pnlListaItens_Resize(object sender, EventArgs e)
+        {
+            cbxExibirCategoria.Width = lsbFlashcards.Width;
+            lblCategoria.Width = lsbFlashcards.Width;
+
+            if (cbxExibirCategoria.Width >= 340)
+            {
+                cbxExibirCategoria.Width = 340;
+                cbxExibirCategoria.Left = (pnlListaItens.Width - cbxExibirCategoria.Width) / 2;
+                lblCategoria.Width = 340;
+                lblCategoria.Left = (pnlListaItens.Width - lblCategoria.Width) / 2;
+            }
+            else
+            {
+                lblCategoria.Left = 9;
+                cbxExibirCategoria.Left = 9;
+            }
+        }
+
+        private void tpGerenciar_Resize(object sender, EventArgs e)
+        {
+            pnlNovoFlashcard.Height = tpGerenciar.Height / 2 - 1;
+            panel3.Top = tpGerenciar.Height / 2;
+            pnlCategorias.Top = tpGerenciar.Height / 2 + 1;
+            pnlCategorias.Height = tpGerenciar.Height / 2 - 2;
+            gbAdicionarCategoria.Top = (pnlCategorias.Height - gbAdicionarCategoria.Height) / 2;
         }
     }
 }
