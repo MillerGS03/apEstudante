@@ -16,7 +16,7 @@ namespace apEstudante
         }
         public override string ToString()
         {
-            string saida = Nome.PadRight(30);
+            string saida = Nome.PadRight(50);
             foreach (Flashcard flsc in flashcards)
                 saida += flsc.ToString();
             return saida;

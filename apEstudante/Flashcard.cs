@@ -30,12 +30,12 @@ namespace apEstudante
 
         public override string ToString()
         {
-            string saida = PalavraChave.PadRight(30);
+            string saida = PalavraChave.PadRight(50);
             if (usandoImagem)
                 saida += "1";
             else
                 saida += "0";
-            saida += Definicao.PadRight(90);
+            saida += Definicao.PadRight(120);
             return saida;
         }
     }

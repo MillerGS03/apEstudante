@@ -33,21 +33,16 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tpGerenciar = new System.Windows.Forms.TabPage();
+            this.pnlCategorias = new System.Windows.Forms.Panel();
+            this.lsbCategorias = new System.Windows.Forms.ListBox();
+            this.btnRemoverCategoria = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.label6 = new System.Windows.Forms.Label();
             this.gbAdicionarCategoria = new System.Windows.Forms.GroupBox();
             this.txtMateria = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.btnAdicionarCategoria = new System.Windows.Forms.Button();
-            this.btnRemoverCategoria = new System.Windows.Forms.Button();
-            this.lsbCategorias = new System.Windows.Forms.ListBox();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.btnRemoverFlashcard = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
-            this.lblCategoria = new System.Windows.Forms.Label();
-            this.cbxExibirCategoria = new System.Windows.Forms.ComboBox();
-            this.lsbFlashcards = new System.Windows.Forms.ListBox();
+            this.pnlNovoFlashcard = new System.Windows.Forms.Panel();
+            this.lblNovoEditarFlashcard = new System.Windows.Forms.Label();
             this.gbNovoFlashcard = new System.Windows.Forms.GroupBox();
             this.pnImagem = new System.Windows.Forms.Panel();
             this.btnEscolherImagem = new System.Windows.Forms.Button();
@@ -56,21 +51,28 @@
             this.txtPalavraChave = new System.Windows.Forms.TextBox();
             this.cbxCategoria = new System.Windows.Forms.ComboBox();
             this.txtDefinicao = new System.Windows.Forms.TextBox();
-            this.btnAdicionarFlashcard = new System.Windows.Forms.Button();
+            this.btnAdicionarEditarFlashcard = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.ofdImgFlashcard = new System.Windows.Forms.OpenFileDialog();
             this.pnlListaItens = new System.Windows.Forms.Panel();
-            this.pnlNovoFlashcard = new System.Windows.Forms.Panel();
-            this.pnlCategorias = new System.Windows.Forms.Panel();
+            this.btnEditarFlashcard = new System.Windows.Forms.Button();
+            this.lsbFlashcards = new System.Windows.Forms.ListBox();
+            this.cbxExibirCategoria = new System.Windows.Forms.ComboBox();
+            this.lblCategoria = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.btnRemoverFlashcard = new System.Windows.Forms.Button();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.ofdImgFlashcard = new System.Windows.Forms.OpenFileDialog();
+            this.btnCancelarEdicao = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tpGerenciar.SuspendLayout();
+            this.pnlCategorias.SuspendLayout();
             this.gbAdicionarCategoria.SuspendLayout();
+            this.pnlNovoFlashcard.SuspendLayout();
             this.gbNovoFlashcard.SuspendLayout();
             this.pnlListaItens.SuspendLayout();
-            this.pnlNovoFlashcard.SuspendLayout();
-            this.pnlCategorias.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -123,6 +125,47 @@
             this.tpGerenciar.Click += new System.EventHandler(this.tpGerenciar_Click);
             this.tpGerenciar.Resize += new System.EventHandler(this.tpGerenciar_Resize);
             // 
+            // pnlCategorias
+            // 
+            this.pnlCategorias.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlCategorias.Controls.Add(this.lsbCategorias);
+            this.pnlCategorias.Controls.Add(this.btnRemoverCategoria);
+            this.pnlCategorias.Controls.Add(this.label4);
+            this.pnlCategorias.Controls.Add(this.gbAdicionarCategoria);
+            this.pnlCategorias.Location = new System.Drawing.Point(242, 268);
+            this.pnlCategorias.Name = "pnlCategorias";
+            this.pnlCategorias.Size = new System.Drawing.Size(466, 247);
+            this.pnlCategorias.TabIndex = 46;
+            this.pnlCategorias.Click += new System.EventHandler(this.tpGerenciar_Click);
+            // 
+            // lsbCategorias
+            // 
+            this.lsbCategorias.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.lsbCategorias.FormattingEnabled = true;
+            this.lsbCategorias.ItemHeight = 22;
+            this.lsbCategorias.Location = new System.Drawing.Point(7, 35);
+            this.lsbCategorias.Name = "lsbCategorias";
+            this.lsbCategorias.Size = new System.Drawing.Size(186, 158);
+            this.lsbCategorias.TabIndex = 40;
+            this.lsbCategorias.SelectedIndexChanged += new System.EventHandler(this.lsbCategorias_SelectedIndexChanged);
+            // 
+            // btnRemoverCategoria
+            // 
+            this.btnRemoverCategoria.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnRemoverCategoria.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnRemoverCategoria.Enabled = false;
+            this.btnRemoverCategoria.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.btnRemoverCategoria.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRemoverCategoria.ForeColor = System.Drawing.Color.White;
+            this.btnRemoverCategoria.Location = new System.Drawing.Point(7, 203);
+            this.btnRemoverCategoria.Name = "btnRemoverCategoria";
+            this.btnRemoverCategoria.Size = new System.Drawing.Size(186, 35);
+            this.btnRemoverCategoria.TabIndex = 41;
+            this.btnRemoverCategoria.Text = "Remover";
+            this.btnRemoverCategoria.UseVisualStyleBackColor = false;
+            this.btnRemoverCategoria.Click += new System.EventHandler(this.btnRemoverCategoria_Click);
+            // 
             // label4
             // 
             this.label4.Dock = System.Windows.Forms.DockStyle.Top;
@@ -133,27 +176,6 @@
             this.label4.TabIndex = 31;
             this.label4.Text = "Categorias";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // panel3
-            // 
-            this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel3.BackColor = System.Drawing.Color.Black;
-            this.panel3.Location = new System.Drawing.Point(242, 267);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(470, 1);
-            this.panel3.TabIndex = 43;
-            // 
-            // label6
-            // 
-            this.label6.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label6.Font = new System.Drawing.Font("Century Gothic", 16.5F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
-            this.label6.Location = new System.Drawing.Point(0, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(466, 27);
-            this.label6.TabIndex = 32;
-            this.label6.Text = "Novo Flashcard";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // gbAdicionarCategoria
             // 
@@ -169,7 +191,7 @@
             // txtMateria
             // 
             this.txtMateria.Location = new System.Drawing.Point(71, 26);
-            this.txtMateria.MaxLength = 30;
+            this.txtMateria.MaxLength = 50;
             this.txtMateria.Name = "txtMateria";
             this.txtMateria.Size = new System.Drawing.Size(187, 31);
             this.txtMateria.TabIndex = 18;
@@ -199,111 +221,34 @@
             this.btnAdicionarCategoria.UseVisualStyleBackColor = false;
             this.btnAdicionarCategoria.Click += new System.EventHandler(this.btnAdicionarCategoria_Click);
             // 
-            // btnRemoverCategoria
+            // pnlNovoFlashcard
             // 
-            this.btnRemoverCategoria.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnRemoverCategoria.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btnRemoverCategoria.Enabled = false;
-            this.btnRemoverCategoria.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.btnRemoverCategoria.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRemoverCategoria.ForeColor = System.Drawing.Color.White;
-            this.btnRemoverCategoria.Location = new System.Drawing.Point(7, 203);
-            this.btnRemoverCategoria.Name = "btnRemoverCategoria";
-            this.btnRemoverCategoria.Size = new System.Drawing.Size(186, 35);
-            this.btnRemoverCategoria.TabIndex = 41;
-            this.btnRemoverCategoria.Text = "Remover";
-            this.btnRemoverCategoria.UseVisualStyleBackColor = false;
-            this.btnRemoverCategoria.Click += new System.EventHandler(this.btnRemoverCategoria_Click);
+            this.pnlNovoFlashcard.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlNovoFlashcard.Controls.Add(this.lblNovoEditarFlashcard);
+            this.pnlNovoFlashcard.Controls.Add(this.gbNovoFlashcard);
+            this.pnlNovoFlashcard.Location = new System.Drawing.Point(242, -1);
+            this.pnlNovoFlashcard.Name = "pnlNovoFlashcard";
+            this.pnlNovoFlashcard.Size = new System.Drawing.Size(466, 268);
+            this.pnlNovoFlashcard.TabIndex = 45;
+            this.pnlNovoFlashcard.Click += new System.EventHandler(this.tpGerenciar_Click);
             // 
-            // lsbCategorias
+            // lblNovoEditarFlashcard
             // 
-            this.lsbCategorias.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.lsbCategorias.FormattingEnabled = true;
-            this.lsbCategorias.ItemHeight = 22;
-            this.lsbCategorias.Location = new System.Drawing.Point(7, 35);
-            this.lsbCategorias.Name = "lsbCategorias";
-            this.lsbCategorias.Size = new System.Drawing.Size(186, 158);
-            this.lsbCategorias.TabIndex = 40;
-            this.lsbCategorias.SelectedIndexChanged += new System.EventHandler(this.lsbCategorias_SelectedIndexChanged);
-            // 
-            // panel1
-            // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel1.BackColor = System.Drawing.Color.Black;
-            this.panel1.Location = new System.Drawing.Point(241, -2);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1, 520);
-            this.panel1.TabIndex = 39;
-            // 
-            // btnRemoverFlashcard
-            // 
-            this.btnRemoverFlashcard.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnRemoverFlashcard.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btnRemoverFlashcard.Enabled = false;
-            this.btnRemoverFlashcard.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.btnRemoverFlashcard.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRemoverFlashcard.ForeColor = System.Drawing.Color.White;
-            this.btnRemoverFlashcard.Location = new System.Drawing.Point(9, 469);
-            this.btnRemoverFlashcard.Name = "btnRemoverFlashcard";
-            this.btnRemoverFlashcard.Size = new System.Drawing.Size(224, 35);
-            this.btnRemoverFlashcard.TabIndex = 38;
-            this.btnRemoverFlashcard.Text = "Remover";
-            this.btnRemoverFlashcard.UseVisualStyleBackColor = false;
-            this.btnRemoverFlashcard.Click += new System.EventHandler(this.btnRemoverFlashcard_Click);
-            // 
-            // label3
-            // 
-            this.label3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label3.Font = new System.Drawing.Font("Century Gothic", 16.5F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
-            this.label3.Location = new System.Drawing.Point(0, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(238, 27);
-            this.label3.TabIndex = 37;
-            this.label3.Text = "Itens";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lblCategoria
-            // 
-            this.lblCategoria.Location = new System.Drawing.Point(9, 36);
-            this.lblCategoria.Name = "lblCategoria";
-            this.lblCategoria.Size = new System.Drawing.Size(223, 22);
-            this.lblCategoria.TabIndex = 36;
-            this.lblCategoria.Text = "Categoria";
-            this.lblCategoria.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // cbxExibirCategoria
-            // 
-            this.cbxExibirCategoria.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.cbxExibirCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbxExibirCategoria.FormattingEnabled = true;
-            this.cbxExibirCategoria.Location = new System.Drawing.Point(9, 61);
-            this.cbxExibirCategoria.Name = "cbxExibirCategoria";
-            this.cbxExibirCategoria.Size = new System.Drawing.Size(224, 30);
-            this.cbxExibirCategoria.TabIndex = 35;
-            this.cbxExibirCategoria.SelectedIndexChanged += new System.EventHandler(this.cbxExibirCategoria_SelectedIndexChanged);
-            // 
-            // lsbFlashcards
-            // 
-            this.lsbFlashcards.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lsbFlashcards.FormattingEnabled = true;
-            this.lsbFlashcards.ItemHeight = 22;
-            this.lsbFlashcards.Location = new System.Drawing.Point(9, 100);
-            this.lsbFlashcards.Name = "lsbFlashcards";
-            this.lsbFlashcards.Size = new System.Drawing.Size(224, 356);
-            this.lsbFlashcards.TabIndex = 34;
-            this.lsbFlashcards.SelectedIndexChanged += new System.EventHandler(this.lsbFlashcards_SelectedIndexChanged);
+            this.lblNovoEditarFlashcard.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblNovoEditarFlashcard.Font = new System.Drawing.Font("Century Gothic", 16.5F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            this.lblNovoEditarFlashcard.Location = new System.Drawing.Point(0, 0);
+            this.lblNovoEditarFlashcard.Name = "lblNovoEditarFlashcard";
+            this.lblNovoEditarFlashcard.Size = new System.Drawing.Size(466, 27);
+            this.lblNovoEditarFlashcard.TabIndex = 32;
+            this.lblNovoEditarFlashcard.Text = "Novo Flashcard";
+            this.lblNovoEditarFlashcard.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // gbNovoFlashcard
             // 
             this.gbNovoFlashcard.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.gbNovoFlashcard.Controls.Add(this.btnCancelarEdicao);
             this.gbNovoFlashcard.Controls.Add(this.pnImagem);
             this.gbNovoFlashcard.Controls.Add(this.btnEscolherImagem);
             this.gbNovoFlashcard.Controls.Add(this.rbImagem);
@@ -311,7 +256,7 @@
             this.gbNovoFlashcard.Controls.Add(this.txtPalavraChave);
             this.gbNovoFlashcard.Controls.Add(this.cbxCategoria);
             this.gbNovoFlashcard.Controls.Add(this.txtDefinicao);
-            this.gbNovoFlashcard.Controls.Add(this.btnAdicionarFlashcard);
+            this.gbNovoFlashcard.Controls.Add(this.btnAdicionarEditarFlashcard);
             this.gbNovoFlashcard.Controls.Add(this.label7);
             this.gbNovoFlashcard.Controls.Add(this.label8);
             this.gbNovoFlashcard.Controls.Add(this.label9);
@@ -371,9 +316,9 @@
             // txtPalavraChave
             // 
             this.txtPalavraChave.Location = new System.Drawing.Point(148, 21);
-            this.txtPalavraChave.MaxLength = 30;
+            this.txtPalavraChave.MaxLength = 50;
             this.txtPalavraChave.Name = "txtPalavraChave";
-            this.txtPalavraChave.Size = new System.Drawing.Size(196, 31);
+            this.txtPalavraChave.Size = new System.Drawing.Size(303, 31);
             this.txtPalavraChave.TabIndex = 9;
             this.txtPalavraChave.TextChanged += new System.EventHandler(this.txtPalavraChave_TextChanged);
             // 
@@ -383,7 +328,7 @@
             this.cbxCategoria.FormattingEnabled = true;
             this.cbxCategoria.Location = new System.Drawing.Point(148, 58);
             this.cbxCategoria.Name = "cbxCategoria";
-            this.cbxCategoria.Size = new System.Drawing.Size(196, 30);
+            this.cbxCategoria.Size = new System.Drawing.Size(303, 30);
             this.cbxCategoria.TabIndex = 7;
             this.cbxCategoria.SelectedIndexChanged += new System.EventHandler(this.cbxCategoria_SelectedIndexChanged);
             // 
@@ -394,28 +339,28 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtDefinicao.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDefinicao.Location = new System.Drawing.Point(388, 98);
-            this.txtDefinicao.MaxLength = 90;
+            this.txtDefinicao.MaxLength = 120;
             this.txtDefinicao.Multiline = true;
             this.txtDefinicao.Name = "txtDefinicao";
             this.txtDefinicao.Size = new System.Drawing.Size(277, 86);
             this.txtDefinicao.TabIndex = 2;
             this.txtDefinicao.TextChanged += new System.EventHandler(this.txtDefinicao_TextChanged);
             // 
-            // btnAdicionarFlashcard
+            // btnAdicionarEditarFlashcard
             // 
-            this.btnAdicionarFlashcard.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnAdicionarFlashcard.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btnAdicionarFlashcard.Enabled = false;
-            this.btnAdicionarFlashcard.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.btnAdicionarFlashcard.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAdicionarFlashcard.ForeColor = System.Drawing.Color.White;
-            this.btnAdicionarFlashcard.Location = new System.Drawing.Point(148, 200);
-            this.btnAdicionarFlashcard.Name = "btnAdicionarFlashcard";
-            this.btnAdicionarFlashcard.Size = new System.Drawing.Size(152, 40);
-            this.btnAdicionarFlashcard.TabIndex = 3;
-            this.btnAdicionarFlashcard.Text = "Adicionar";
-            this.btnAdicionarFlashcard.UseVisualStyleBackColor = false;
-            this.btnAdicionarFlashcard.Click += new System.EventHandler(this.btnAdicionarFlashcard_Click);
+            this.btnAdicionarEditarFlashcard.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnAdicionarEditarFlashcard.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnAdicionarEditarFlashcard.Enabled = false;
+            this.btnAdicionarEditarFlashcard.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.btnAdicionarEditarFlashcard.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAdicionarEditarFlashcard.ForeColor = System.Drawing.Color.White;
+            this.btnAdicionarEditarFlashcard.Location = new System.Drawing.Point(148, 200);
+            this.btnAdicionarEditarFlashcard.Name = "btnAdicionarEditarFlashcard";
+            this.btnAdicionarEditarFlashcard.Size = new System.Drawing.Size(152, 40);
+            this.btnAdicionarEditarFlashcard.TabIndex = 3;
+            this.btnAdicionarEditarFlashcard.Text = "Adicionar";
+            this.btnAdicionarEditarFlashcard.UseVisualStyleBackColor = false;
+            this.btnAdicionarEditarFlashcard.Click += new System.EventHandler(this.btnAdicionarEditarFlashcard_Click);
             // 
             // label7
             // 
@@ -447,16 +392,12 @@
             this.label9.TabIndex = 4;
             this.label9.Text = "Definição";
             // 
-            // ofdImgFlashcard
-            // 
-            this.ofdImgFlashcard.FileName = "Flashcard";
-            this.ofdImgFlashcard.Filter = "Arquivos de Imagem | *.png; *.jpg; *.jpeg; *.gif";
-            // 
             // pnlListaItens
             // 
             this.pnlListaItens.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlListaItens.Controls.Add(this.btnEditarFlashcard);
             this.pnlListaItens.Controls.Add(this.lsbFlashcards);
             this.pnlListaItens.Controls.Add(this.cbxExibirCategoria);
             this.pnlListaItens.Controls.Add(this.lblCategoria);
@@ -469,29 +410,123 @@
             this.pnlListaItens.Click += new System.EventHandler(this.tpGerenciar_Click);
             this.pnlListaItens.Resize += new System.EventHandler(this.pnlListaItens_Resize);
             // 
-            // pnlNovoFlashcard
+            // btnEditarFlashcard
             // 
-            this.pnlNovoFlashcard.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnlNovoFlashcard.Controls.Add(this.label6);
-            this.pnlNovoFlashcard.Controls.Add(this.gbNovoFlashcard);
-            this.pnlNovoFlashcard.Location = new System.Drawing.Point(242, -1);
-            this.pnlNovoFlashcard.Name = "pnlNovoFlashcard";
-            this.pnlNovoFlashcard.Size = new System.Drawing.Size(466, 268);
-            this.pnlNovoFlashcard.TabIndex = 45;
-            this.pnlNovoFlashcard.Click += new System.EventHandler(this.tpGerenciar_Click);
+            this.btnEditarFlashcard.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnEditarFlashcard.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnEditarFlashcard.Enabled = false;
+            this.btnEditarFlashcard.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.btnEditarFlashcard.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEditarFlashcard.ForeColor = System.Drawing.Color.White;
+            this.btnEditarFlashcard.Location = new System.Drawing.Point(9, 469);
+            this.btnEditarFlashcard.Name = "btnEditarFlashcard";
+            this.btnEditarFlashcard.Size = new System.Drawing.Size(110, 35);
+            this.btnEditarFlashcard.TabIndex = 39;
+            this.btnEditarFlashcard.Text = "Editar";
+            this.btnEditarFlashcard.UseVisualStyleBackColor = false;
+            this.btnEditarFlashcard.Click += new System.EventHandler(this.btnEditarFlashcard_Click);
             // 
-            // pnlCategorias
+            // lsbFlashcards
             // 
-            this.pnlCategorias.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnlCategorias.Controls.Add(this.lsbCategorias);
-            this.pnlCategorias.Controls.Add(this.btnRemoverCategoria);
-            this.pnlCategorias.Controls.Add(this.label4);
-            this.pnlCategorias.Controls.Add(this.gbAdicionarCategoria);
-            this.pnlCategorias.Location = new System.Drawing.Point(242, 268);
-            this.pnlCategorias.Name = "pnlCategorias";
-            this.pnlCategorias.Size = new System.Drawing.Size(466, 247);
-            this.pnlCategorias.TabIndex = 46;
-            this.pnlCategorias.Click += new System.EventHandler(this.tpGerenciar_Click);
+            this.lsbFlashcards.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lsbFlashcards.FormattingEnabled = true;
+            this.lsbFlashcards.ItemHeight = 22;
+            this.lsbFlashcards.Location = new System.Drawing.Point(9, 100);
+            this.lsbFlashcards.Name = "lsbFlashcards";
+            this.lsbFlashcards.Size = new System.Drawing.Size(224, 356);
+            this.lsbFlashcards.TabIndex = 34;
+            this.lsbFlashcards.SelectedIndexChanged += new System.EventHandler(this.lsbFlashcards_SelectedIndexChanged);
+            // 
+            // cbxExibirCategoria
+            // 
+            this.cbxExibirCategoria.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbxExibirCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxExibirCategoria.FormattingEnabled = true;
+            this.cbxExibirCategoria.Location = new System.Drawing.Point(9, 61);
+            this.cbxExibirCategoria.Name = "cbxExibirCategoria";
+            this.cbxExibirCategoria.Size = new System.Drawing.Size(224, 30);
+            this.cbxExibirCategoria.TabIndex = 35;
+            this.cbxExibirCategoria.SelectedIndexChanged += new System.EventHandler(this.cbxExibirCategoria_SelectedIndexChanged);
+            // 
+            // lblCategoria
+            // 
+            this.lblCategoria.Location = new System.Drawing.Point(9, 36);
+            this.lblCategoria.Name = "lblCategoria";
+            this.lblCategoria.Size = new System.Drawing.Size(223, 22);
+            this.lblCategoria.TabIndex = 36;
+            this.lblCategoria.Text = "Categoria";
+            this.lblCategoria.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label3
+            // 
+            this.label3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label3.Font = new System.Drawing.Font("Century Gothic", 16.5F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            this.label3.Location = new System.Drawing.Point(0, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(238, 27);
+            this.label3.TabIndex = 37;
+            this.label3.Text = "Itens";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // btnRemoverFlashcard
+            // 
+            this.btnRemoverFlashcard.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnRemoverFlashcard.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnRemoverFlashcard.Enabled = false;
+            this.btnRemoverFlashcard.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.btnRemoverFlashcard.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRemoverFlashcard.ForeColor = System.Drawing.Color.White;
+            this.btnRemoverFlashcard.Location = new System.Drawing.Point(122, 469);
+            this.btnRemoverFlashcard.Name = "btnRemoverFlashcard";
+            this.btnRemoverFlashcard.Size = new System.Drawing.Size(110, 35);
+            this.btnRemoverFlashcard.TabIndex = 38;
+            this.btnRemoverFlashcard.Text = "Remover";
+            this.btnRemoverFlashcard.UseVisualStyleBackColor = false;
+            this.btnRemoverFlashcard.Click += new System.EventHandler(this.btnRemoverFlashcard_Click);
+            // 
+            // panel3
+            // 
+            this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel3.BackColor = System.Drawing.Color.Black;
+            this.panel3.Location = new System.Drawing.Point(242, 267);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(470, 1);
+            this.panel3.TabIndex = 43;
+            // 
+            // panel1
+            // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.BackColor = System.Drawing.Color.Black;
+            this.panel1.Location = new System.Drawing.Point(241, -2);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1, 520);
+            this.panel1.TabIndex = 39;
+            // 
+            // ofdImgFlashcard
+            // 
+            this.ofdImgFlashcard.FileName = "Flashcard";
+            this.ofdImgFlashcard.Filter = "Arquivos de Imagem | *.png; *.jpg; *.jpeg; *.gif";
+            // 
+            // btnCancelarEdicao
+            // 
+            this.btnCancelarEdicao.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnCancelarEdicao.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnCancelarEdicao.Enabled = false;
+            this.btnCancelarEdicao.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.btnCancelarEdicao.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancelarEdicao.ForeColor = System.Drawing.Color.White;
+            this.btnCancelarEdicao.Location = new System.Drawing.Point(204, 200);
+            this.btnCancelarEdicao.Name = "btnCancelarEdicao";
+            this.btnCancelarEdicao.Size = new System.Drawing.Size(152, 40);
+            this.btnCancelarEdicao.TabIndex = 14;
+            this.btnCancelarEdicao.Text = "Cancelar";
+            this.btnCancelarEdicao.UseVisualStyleBackColor = false;
+            this.btnCancelarEdicao.Visible = false;
             // 
             // UcFlashcards
             // 
@@ -507,13 +542,13 @@
             this.Resize += new System.EventHandler(this.UcFlashcards_Resize);
             this.tabControl1.ResumeLayout(false);
             this.tpGerenciar.ResumeLayout(false);
+            this.pnlCategorias.ResumeLayout(false);
             this.gbAdicionarCategoria.ResumeLayout(false);
             this.gbAdicionarCategoria.PerformLayout();
+            this.pnlNovoFlashcard.ResumeLayout(false);
             this.gbNovoFlashcard.ResumeLayout(false);
             this.gbNovoFlashcard.PerformLayout();
             this.pnlListaItens.ResumeLayout(false);
-            this.pnlNovoFlashcard.ResumeLayout(false);
-            this.pnlCategorias.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -526,7 +561,7 @@
         private System.Windows.Forms.TabPage tpGerenciar;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label lblNovoEditarFlashcard;
         private System.Windows.Forms.GroupBox gbAdicionarCategoria;
         private System.Windows.Forms.TextBox txtMateria;
         private System.Windows.Forms.Label label5;
@@ -545,7 +580,7 @@
         private System.Windows.Forms.TextBox txtPalavraChave;
         private System.Windows.Forms.ComboBox cbxCategoria;
         private System.Windows.Forms.TextBox txtDefinicao;
-        private System.Windows.Forms.Button btnAdicionarFlashcard;
+        private System.Windows.Forms.Button btnAdicionarEditarFlashcard;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
@@ -555,5 +590,7 @@
         private System.Windows.Forms.Panel pnlListaItens;
         private System.Windows.Forms.Panel pnlNovoFlashcard;
         private System.Windows.Forms.Panel pnlCategorias;
+        private System.Windows.Forms.Button btnEditarFlashcard;
+        private System.Windows.Forms.Button btnCancelarEdicao;
     }
 }
