@@ -74,13 +74,14 @@
             // 
             // lbTitulo
             // 
-            this.lbTitulo.AutoSize = true;
-            this.lbTitulo.Location = new System.Drawing.Point(99, 12);
+            this.lbTitulo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lbTitulo.Location = new System.Drawing.Point(50, 2);
             this.lbTitulo.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lbTitulo.Name = "lbTitulo";
-            this.lbTitulo.Size = new System.Drawing.Size(100, 24);
+            this.lbTitulo.Size = new System.Drawing.Size(198, 44);
             this.lbTitulo.TabIndex = 2;
             this.lbTitulo.Text = "Nenhum";
+            this.lbTitulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lbTitulo.Visible = false;
             // 
             // panel1
@@ -135,7 +136,6 @@
             this.Name = "Switcher";
             this.Size = new System.Drawing.Size(298, 48);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 

@@ -35,5 +35,10 @@ namespace apEstudante
             ucCronogramas1.GravarDados();
             ucFlashcards1.GravarDados();
         }
+
+        private void frmAplicativo_Load(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Maximized;
+        }
     }
 }

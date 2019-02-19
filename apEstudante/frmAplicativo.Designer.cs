@@ -188,6 +188,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Organização de Estudos";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmAplicativo_FormClosing);
+            this.Load += new System.EventHandler(this.frmAplicativo_Load);
             this.pnMenu.ResumeLayout(false);
             this.pnMenu.PerformLayout();
             this.ResumeLayout(false);

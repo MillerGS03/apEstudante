@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UcCronogramas));
             this.label1 = new System.Windows.Forms.Label();
             this.dgCronogramas = new System.Windows.Forms.DataGridView();
@@ -47,32 +47,36 @@
             this.btnRemoverSelecionado = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.cbxDia = new System.Windows.Forms.ComboBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.gbAdicionar = new System.Windows.Forms.GroupBox();
             this.txtMateria = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.pnlControleDaLista = new System.Windows.Forms.Panel();
             this.btnRemoverMateria = new System.Windows.Forms.Button();
+            this.btnAdicionarMateria2 = new System.Windows.Forms.Button();
             this.chkNegrito = new System.Windows.Forms.CheckBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtConteudo = new System.Windows.Forms.TextBox();
+            this.txtMateria2 = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.btnAdicionarConteudo = new System.Windows.Forms.Button();
+            this.pnlLista = new System.Windows.Forms.Panel();
+            this.switcher1 = new apAplicativos.Switcher();
+            this.btnCheckUncheck = new System.Windows.Forms.Button();
+            this.btnRemoverConteudo = new System.Windows.Forms.Button();
             this.dgvConteudos = new System.Windows.Forms.DataGridView();
             this.clConteudo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clFeito = new System.Windows.Forms.DataGridViewImageColumn();
-            this.switcher1 = new apAplicativos.Switcher();
-            this.txtConteudo = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.btnAdicionarConteudo = new System.Windows.Forms.Button();
-            this.txtMateria2 = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.btnAdicionarMateria2 = new System.Windows.Forms.Button();
-            this.btnRemoverConteudo = new System.Windows.Forms.Button();
-            this.btnCheckUncheck = new System.Windows.Forms.Button();
             this.imlChecked = new System.Windows.Forms.ImageList(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgCronogramas)).BeginInit();
-            this.groupBox1.SuspendLayout();
+            this.gbAdicionar.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
+            this.pnlControleDaLista.SuspendLayout();
+            this.pnlLista.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvConteudos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -90,19 +94,18 @@
             // 
             this.dgCronogramas.AllowUserToAddRows = false;
             this.dgCronogramas.AllowUserToDeleteRows = false;
-            this.dgCronogramas.AllowUserToResizeColumns = false;
             this.dgCronogramas.AllowUserToResizeRows = false;
             this.dgCronogramas.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgCronogramas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgCronogramas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgCronogramas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgCronogramas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.clDomingo,
@@ -176,9 +179,11 @@
             // 
             // txtHorario
             // 
+            this.txtHorario.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtHorario.Location = new System.Drawing.Point(97, 96);
             this.txtHorario.Name = "txtHorario";
-            this.txtHorario.Size = new System.Drawing.Size(196, 31);
+            this.txtHorario.Size = new System.Drawing.Size(267, 31);
             this.txtHorario.TabIndex = 2;
             this.txtHorario.TextChanged += new System.EventHandler(this.txtHorario_TextChanged);
             // 
@@ -189,7 +194,7 @@
             this.btnAdicionar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.btnAdicionar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAdicionar.ForeColor = System.Drawing.Color.White;
-            this.btnAdicionar.Location = new System.Drawing.Point(97, 139);
+            this.btnAdicionar.Location = new System.Drawing.Point(124, 139);
             this.btnAdicionar.Name = "btnAdicionar";
             this.btnAdicionar.Size = new System.Drawing.Size(131, 40);
             this.btnAdicionar.TabIndex = 3;
@@ -233,6 +238,8 @@
             // 
             // cbxDia
             // 
+            this.cbxDia.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.cbxDia.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxDia.FormattingEnabled = true;
             this.cbxDia.Items.AddRange(new object[] {
@@ -245,31 +252,34 @@
             "Sábado"});
             this.cbxDia.Location = new System.Drawing.Point(97, 61);
             this.cbxDia.Name = "cbxDia";
-            this.cbxDia.Size = new System.Drawing.Size(196, 30);
+            this.cbxDia.Size = new System.Drawing.Size(267, 30);
             this.cbxDia.TabIndex = 7;
             this.cbxDia.SelectedIndexChanged += new System.EventHandler(this.cbxDia_SelectedIndexChanged);
             // 
-            // groupBox1
+            // gbAdicionar
             // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.groupBox1.Controls.Add(this.txtMateria);
-            this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.cbxDia);
-            this.groupBox1.Controls.Add(this.txtHorario);
-            this.groupBox1.Controls.Add(this.btnAdicionar);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Location = new System.Drawing.Point(7, 322);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(308, 184);
-            this.groupBox1.TabIndex = 8;
-            this.groupBox1.TabStop = false;
+            this.gbAdicionar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.gbAdicionar.Controls.Add(this.txtMateria);
+            this.gbAdicionar.Controls.Add(this.label4);
+            this.gbAdicionar.Controls.Add(this.label3);
+            this.gbAdicionar.Controls.Add(this.cbxDia);
+            this.gbAdicionar.Controls.Add(this.txtHorario);
+            this.gbAdicionar.Controls.Add(this.btnAdicionar);
+            this.gbAdicionar.Controls.Add(this.label2);
+            this.gbAdicionar.Location = new System.Drawing.Point(173, 317);
+            this.gbAdicionar.Name = "gbAdicionar";
+            this.gbAdicionar.Size = new System.Drawing.Size(379, 184);
+            this.gbAdicionar.TabIndex = 8;
+            this.gbAdicionar.TabStop = false;
             // 
             // txtMateria
             // 
+            this.txtMateria.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtMateria.Location = new System.Drawing.Point(97, 26);
+            this.txtMateria.MaxLength = 50;
             this.txtMateria.Name = "txtMateria";
-            this.txtMateria.Size = new System.Drawing.Size(196, 31);
+            this.txtMateria.Size = new System.Drawing.Size(267, 31);
             this.txtMateria.TabIndex = 9;
             this.txtMateria.TextChanged += new System.EventHandler(this.txtMateria_TextChanged);
             // 
@@ -298,7 +308,7 @@
             // tabPage1
             // 
             this.tabPage1.Controls.Add(this.dgCronogramas);
-            this.tabPage1.Controls.Add(this.groupBox1);
+            this.tabPage1.Controls.Add(this.gbAdicionar);
             this.tabPage1.Controls.Add(this.btnRemoverSelecionado);
             this.tabPage1.Location = new System.Drawing.Point(4, 31);
             this.tabPage1.Name = "tabPage1";
@@ -310,18 +320,8 @@
             // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.btnRemoverMateria);
-            this.tabPage2.Controls.Add(this.chkNegrito);
-            this.tabPage2.Controls.Add(this.dgvConteudos);
-            this.tabPage2.Controls.Add(this.switcher1);
-            this.tabPage2.Controls.Add(this.txtConteudo);
-            this.tabPage2.Controls.Add(this.label6);
-            this.tabPage2.Controls.Add(this.btnAdicionarConteudo);
-            this.tabPage2.Controls.Add(this.txtMateria2);
-            this.tabPage2.Controls.Add(this.label5);
-            this.tabPage2.Controls.Add(this.btnAdicionarMateria2);
-            this.tabPage2.Controls.Add(this.btnRemoverConteudo);
-            this.tabPage2.Controls.Add(this.btnCheckUncheck);
+            this.tabPage2.Controls.Add(this.pnlControleDaLista);
+            this.tabPage2.Controls.Add(this.pnlLista);
             this.tabPage2.Location = new System.Drawing.Point(4, 31);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
@@ -331,6 +331,22 @@
             this.tabPage2.UseVisualStyleBackColor = true;
             this.tabPage2.Click += new System.EventHandler(this.tabPage2_Click);
             // 
+            // pnlControleDaLista
+            // 
+            this.pnlControleDaLista.Controls.Add(this.btnRemoverMateria);
+            this.pnlControleDaLista.Controls.Add(this.btnAdicionarMateria2);
+            this.pnlControleDaLista.Controls.Add(this.chkNegrito);
+            this.pnlControleDaLista.Controls.Add(this.label5);
+            this.pnlControleDaLista.Controls.Add(this.txtConteudo);
+            this.pnlControleDaLista.Controls.Add(this.txtMateria2);
+            this.pnlControleDaLista.Controls.Add(this.label6);
+            this.pnlControleDaLista.Controls.Add(this.btnAdicionarConteudo);
+            this.pnlControleDaLista.Dock = System.Windows.Forms.DockStyle.Right;
+            this.pnlControleDaLista.Location = new System.Drawing.Point(411, 3);
+            this.pnlControleDaLista.Name = "pnlControleDaLista";
+            this.pnlControleDaLista.Size = new System.Drawing.Size(311, 509);
+            this.pnlControleDaLista.TabIndex = 22;
+            // 
             // btnRemoverMateria
             // 
             this.btnRemoverMateria.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
@@ -338,7 +354,7 @@
             this.btnRemoverMateria.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.btnRemoverMateria.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRemoverMateria.ForeColor = System.Drawing.Color.White;
-            this.btnRemoverMateria.Location = new System.Drawing.Point(430, 17);
+            this.btnRemoverMateria.Location = new System.Drawing.Point(13, 4);
             this.btnRemoverMateria.Name = "btnRemoverMateria";
             this.btnRemoverMateria.Size = new System.Drawing.Size(196, 40);
             this.btnRemoverMateria.TabIndex = 20;
@@ -346,91 +362,76 @@
             this.btnRemoverMateria.UseVisualStyleBackColor = false;
             this.btnRemoverMateria.Click += new System.EventHandler(this.btnRemoverMateria_Click);
             // 
+            // btnAdicionarMateria2
+            // 
+            this.btnAdicionarMateria2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAdicionarMateria2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnAdicionarMateria2.Enabled = false;
+            this.btnAdicionarMateria2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.btnAdicionarMateria2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAdicionarMateria2.Font = new System.Drawing.Font("Century Gothic", 13F);
+            this.btnAdicionarMateria2.ForeColor = System.Drawing.Color.White;
+            this.btnAdicionarMateria2.Location = new System.Drawing.Point(102, 173);
+            this.btnAdicionarMateria2.Name = "btnAdicionarMateria2";
+            this.btnAdicionarMateria2.Size = new System.Drawing.Size(201, 40);
+            this.btnAdicionarMateria2.TabIndex = 10;
+            this.btnAdicionarMateria2.Text = "Adicionar";
+            this.btnAdicionarMateria2.UseVisualStyleBackColor = false;
+            this.btnAdicionarMateria2.Click += new System.EventHandler(this.btnAdicionarMateria2_Click);
+            // 
             // chkNegrito
             // 
             this.chkNegrito.AutoSize = true;
             this.chkNegrito.Enabled = false;
             this.chkNegrito.Font = new System.Drawing.Font("Century Gothic", 13F);
-            this.chkNegrito.Location = new System.Drawing.Point(508, 312);
+            this.chkNegrito.Location = new System.Drawing.Point(109, 308);
             this.chkNegrito.Name = "chkNegrito";
             this.chkNegrito.Size = new System.Drawing.Size(93, 25);
             this.chkNegrito.TabIndex = 19;
             this.chkNegrito.Text = "Negrito";
             this.chkNegrito.UseVisualStyleBackColor = true;
             // 
-            // dgvConteudos
+            // label5
             // 
-            this.dgvConteudos.AllowUserToAddRows = false;
-            this.dgvConteudos.AllowUserToDeleteRows = false;
-            this.dgvConteudos.AllowUserToResizeColumns = false;
-            this.dgvConteudos.AllowUserToResizeRows = false;
-            this.dgvConteudos.BackgroundColor = System.Drawing.SystemColors.Control;
-            this.dgvConteudos.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvConteudos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
-            this.dgvConteudos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvConteudos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.clConteudo,
-            this.clFeito});
-            this.dgvConteudos.Location = new System.Drawing.Point(1, 67);
-            this.dgvConteudos.Name = "dgvConteudos";
-            this.dgvConteudos.ReadOnly = true;
-            this.dgvConteudos.RowHeadersVisible = false;
-            this.dgvConteudos.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.dgvConteudos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvConteudos.Size = new System.Drawing.Size(405, 387);
-            this.dgvConteudos.TabIndex = 18;
-            this.dgvConteudos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvConteudos_CellClick);
-            // 
-            // clConteudo
-            // 
-            this.clConteudo.HeaderText = "Conteúdo";
-            this.clConteudo.Name = "clConteudo";
-            this.clConteudo.ReadOnly = true;
-            this.clConteudo.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.clConteudo.Width = 353;
-            // 
-            // clFeito
-            // 
-            this.clFeito.HeaderText = "✓";
-            this.clFeito.Image = ((System.Drawing.Image)(resources.GetObject("clFeito.Image")));
-            this.clFeito.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.clFeito.Name = "clFeito";
-            this.clFeito.ReadOnly = true;
-            this.clFeito.Width = 50;
-            // 
-            // switcher1
-            // 
-            this.switcher1.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.switcher1.Location = new System.Drawing.Point(1, 9);
-            this.switcher1.Margin = new System.Windows.Forms.Padding(6);
-            this.switcher1.Name = "switcher1";
-            this.switcher1.Size = new System.Drawing.Size(405, 48);
-            this.switcher1.TabIndex = 17;
-            this.switcher1.IndiceAtualMudou += new System.EventHandler<System.EventArgs>(this.switcher1_IndiceAtualMudou);
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Century Gothic", 13F);
+            this.label5.Location = new System.Drawing.Point(23, 140);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(78, 21);
+            this.label5.TabIndex = 11;
+            this.label5.Text = "Matéria";
             // 
             // txtConteudo
             // 
+            this.txtConteudo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtConteudo.Enabled = false;
             this.txtConteudo.Font = new System.Drawing.Font("Century Gothic", 13F);
-            this.txtConteudo.Location = new System.Drawing.Point(508, 280);
+            this.txtConteudo.Location = new System.Drawing.Point(102, 276);
             this.txtConteudo.MaxLength = 34;
             this.txtConteudo.Name = "txtConteudo";
-            this.txtConteudo.Size = new System.Drawing.Size(205, 29);
+            this.txtConteudo.Size = new System.Drawing.Size(201, 29);
             this.txtConteudo.TabIndex = 15;
             this.txtConteudo.TextChanged += new System.EventHandler(this.txtConteudo_TextChanged);
+            // 
+            // txtMateria2
+            // 
+            this.txtMateria2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtMateria2.Font = new System.Drawing.Font("Century Gothic", 13F);
+            this.txtMateria2.Location = new System.Drawing.Point(102, 137);
+            this.txtMateria2.MaxLength = 30;
+            this.txtMateria2.Name = "txtMateria2";
+            this.txtMateria2.Size = new System.Drawing.Size(201, 29);
+            this.txtMateria2.TabIndex = 12;
+            this.txtMateria2.TextChanged += new System.EventHandler(this.txtMateria2_TextChanged);
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Century Gothic", 13F);
-            this.label6.Location = new System.Drawing.Point(408, 283);
+            this.label6.Location = new System.Drawing.Point(2, 279);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(102, 21);
             this.label6.TabIndex = 14;
@@ -438,64 +439,73 @@
             // 
             // btnAdicionarConteudo
             // 
+            this.btnAdicionarConteudo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAdicionarConteudo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnAdicionarConteudo.Enabled = false;
             this.btnAdicionarConteudo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.btnAdicionarConteudo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAdicionarConteudo.Font = new System.Drawing.Font("Century Gothic", 13F);
             this.btnAdicionarConteudo.ForeColor = System.Drawing.Color.White;
-            this.btnAdicionarConteudo.Location = new System.Drawing.Point(508, 339);
+            this.btnAdicionarConteudo.Location = new System.Drawing.Point(102, 335);
             this.btnAdicionarConteudo.Name = "btnAdicionarConteudo";
-            this.btnAdicionarConteudo.Size = new System.Drawing.Size(205, 40);
+            this.btnAdicionarConteudo.Size = new System.Drawing.Size(201, 40);
             this.btnAdicionarConteudo.TabIndex = 13;
             this.btnAdicionarConteudo.Text = "Adicionar";
             this.btnAdicionarConteudo.UseVisualStyleBackColor = false;
             this.btnAdicionarConteudo.Click += new System.EventHandler(this.btnAdicionarConteudo_Click);
             // 
-            // txtMateria2
+            // pnlLista
             // 
-            this.txtMateria2.Font = new System.Drawing.Font("Century Gothic", 13F);
-            this.txtMateria2.Location = new System.Drawing.Point(508, 141);
-            this.txtMateria2.MaxLength = 30;
-            this.txtMateria2.Name = "txtMateria2";
-            this.txtMateria2.Size = new System.Drawing.Size(205, 29);
-            this.txtMateria2.TabIndex = 12;
-            this.txtMateria2.TextChanged += new System.EventHandler(this.txtMateria2_TextChanged);
+            this.pnlLista.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.pnlLista.Controls.Add(this.switcher1);
+            this.pnlLista.Controls.Add(this.btnCheckUncheck);
+            this.pnlLista.Controls.Add(this.btnRemoverConteudo);
+            this.pnlLista.Controls.Add(this.dgvConteudos);
+            this.pnlLista.Location = new System.Drawing.Point(3, 1);
+            this.pnlLista.Name = "pnlLista";
+            this.pnlLista.Size = new System.Drawing.Size(409, 514);
+            this.pnlLista.TabIndex = 21;
             // 
-            // label5
+            // switcher1
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Century Gothic", 13F);
-            this.label5.Location = new System.Drawing.Point(432, 144);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(78, 21);
-            this.label5.TabIndex = 11;
-            this.label5.Text = "Matéria";
+            this.switcher1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.switcher1.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.switcher1.Location = new System.Drawing.Point(2, 1);
+            this.switcher1.Margin = new System.Windows.Forms.Padding(6);
+            this.switcher1.Name = "switcher1";
+            this.switcher1.Size = new System.Drawing.Size(405, 48);
+            this.switcher1.TabIndex = 17;
+            this.switcher1.IndiceAtualMudou += new System.EventHandler<System.EventArgs>(this.switcher1_IndiceAtualMudou);
             // 
-            // btnAdicionarMateria2
+            // btnCheckUncheck
             // 
-            this.btnAdicionarMateria2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btnAdicionarMateria2.Enabled = false;
-            this.btnAdicionarMateria2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.btnAdicionarMateria2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAdicionarMateria2.Font = new System.Drawing.Font("Century Gothic", 13F);
-            this.btnAdicionarMateria2.ForeColor = System.Drawing.Color.White;
-            this.btnAdicionarMateria2.Location = new System.Drawing.Point(508, 177);
-            this.btnAdicionarMateria2.Name = "btnAdicionarMateria2";
-            this.btnAdicionarMateria2.Size = new System.Drawing.Size(205, 40);
-            this.btnAdicionarMateria2.TabIndex = 10;
-            this.btnAdicionarMateria2.Text = "Adicionar";
-            this.btnAdicionarMateria2.UseVisualStyleBackColor = false;
-            this.btnAdicionarMateria2.Click += new System.EventHandler(this.btnAdicionarMateria2_Click);
+            this.btnCheckUncheck.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCheckUncheck.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnCheckUncheck.Enabled = false;
+            this.btnCheckUncheck.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.btnCheckUncheck.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCheckUncheck.ForeColor = System.Drawing.Color.White;
+            this.btnCheckUncheck.Location = new System.Drawing.Point(2, 474);
+            this.btnCheckUncheck.Name = "btnCheckUncheck";
+            this.btnCheckUncheck.Size = new System.Drawing.Size(195, 40);
+            this.btnCheckUncheck.TabIndex = 4;
+            this.btnCheckUncheck.Text = "Check";
+            this.btnCheckUncheck.UseVisualStyleBackColor = false;
+            this.btnCheckUncheck.Click += new System.EventHandler(this.btnCheckUncheck_Click);
             // 
             // btnRemoverConteudo
             // 
+            this.btnRemoverConteudo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnRemoverConteudo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnRemoverConteudo.Enabled = false;
             this.btnRemoverConteudo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.btnRemoverConteudo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRemoverConteudo.ForeColor = System.Drawing.Color.White;
-            this.btnRemoverConteudo.Location = new System.Drawing.Point(211, 462);
+            this.btnRemoverConteudo.Location = new System.Drawing.Point(212, 474);
             this.btnRemoverConteudo.Name = "btnRemoverConteudo";
             this.btnRemoverConteudo.Size = new System.Drawing.Size(195, 40);
             this.btnRemoverConteudo.TabIndex = 5;
@@ -503,20 +513,56 @@
             this.btnRemoverConteudo.UseVisualStyleBackColor = false;
             this.btnRemoverConteudo.Click += new System.EventHandler(this.btnRemoverConteudo_Click);
             // 
-            // btnCheckUncheck
+            // dgvConteudos
             // 
-            this.btnCheckUncheck.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btnCheckUncheck.Enabled = false;
-            this.btnCheckUncheck.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.btnCheckUncheck.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCheckUncheck.ForeColor = System.Drawing.Color.White;
-            this.btnCheckUncheck.Location = new System.Drawing.Point(1, 462);
-            this.btnCheckUncheck.Name = "btnCheckUncheck";
-            this.btnCheckUncheck.Size = new System.Drawing.Size(195, 40);
-            this.btnCheckUncheck.TabIndex = 4;
-            this.btnCheckUncheck.Text = "Check";
-            this.btnCheckUncheck.UseVisualStyleBackColor = false;
-            this.btnCheckUncheck.Click += new System.EventHandler(this.btnCheckUncheck_Click);
+            this.dgvConteudos.AllowUserToAddRows = false;
+            this.dgvConteudos.AllowUserToDeleteRows = false;
+            this.dgvConteudos.AllowUserToResizeColumns = false;
+            this.dgvConteudos.AllowUserToResizeRows = false;
+            this.dgvConteudos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvConteudos.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.dgvConteudos.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvConteudos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            this.dgvConteudos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvConteudos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.clConteudo,
+            this.clFeito});
+            this.dgvConteudos.Location = new System.Drawing.Point(2, 59);
+            this.dgvConteudos.Name = "dgvConteudos";
+            this.dgvConteudos.ReadOnly = true;
+            this.dgvConteudos.RowHeadersVisible = false;
+            this.dgvConteudos.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.dgvConteudos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvConteudos.Size = new System.Drawing.Size(405, 409);
+            this.dgvConteudos.TabIndex = 18;
+            this.dgvConteudos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvConteudos_CellClick);
+            // 
+            // clConteudo
+            // 
+            this.clConteudo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.clConteudo.HeaderText = "Conteúdo";
+            this.clConteudo.Name = "clConteudo";
+            this.clConteudo.ReadOnly = true;
+            this.clConteudo.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // clFeito
+            // 
+            this.clFeito.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.clFeito.HeaderText = "✓";
+            this.clFeito.Image = ((System.Drawing.Image)(resources.GetObject("clFeito.Image")));
+            this.clFeito.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.clFeito.Name = "clFeito";
+            this.clFeito.ReadOnly = true;
+            this.clFeito.Width = 50;
             // 
             // imlChecked
             // 
@@ -537,12 +583,14 @@
             this.Load += new System.EventHandler(this.UcCronogramas_Load);
             this.Resize += new System.EventHandler(this.UcCronogramas_Resize);
             ((System.ComponentModel.ISupportInitialize)(this.dgCronogramas)).EndInit();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.gbAdicionar.ResumeLayout(false);
+            this.gbAdicionar.PerformLayout();
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
-            this.tabPage2.PerformLayout();
+            this.pnlControleDaLista.ResumeLayout(false);
+            this.pnlControleDaLista.PerformLayout();
+            this.pnlLista.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvConteudos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -566,7 +614,7 @@
         private System.Windows.Forms.Button btnRemoverSelecionado;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox cbxDia;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox gbAdicionar;
         private System.Windows.Forms.TextBox txtMateria;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TabControl tabControl1;
@@ -587,5 +635,7 @@
         private System.Windows.Forms.Button btnRemoverMateria;
         private System.Windows.Forms.DataGridViewTextBoxColumn clConteudo;
         private System.Windows.Forms.DataGridViewImageColumn clFeito;
+        private System.Windows.Forms.Panel pnlLista;
+        private System.Windows.Forms.Panel pnlControleDaLista;
     }
 }

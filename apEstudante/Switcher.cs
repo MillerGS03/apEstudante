@@ -12,25 +12,21 @@ namespace apAplicativos
 {
     public partial class Switcher : UserControl
     {
-        List<string> itens = new List<string>();
-        int indiceAtual = -1;
-
         public Switcher()
         {
             InitializeComponent();
         }
-        public List<string> Itens { get => itens; }
-        public int IndiceAtual { get => indiceAtual; }
-        public int QtosItens { get => itens.Count; }
-        public string ItemAtual { get => itens[indiceAtual]; }
+        public List<string> Itens { get; } = new List<string>();
+        public int IndiceAtual { get; private set; } = -1;
+        public int QtosItens { get => Itens.Count; }
+        public string ItemAtual { get => Itens[IndiceAtual]; }
         public void Adicionar(string item)
         {
-            indiceAtual = QtosItens;
+            IndiceAtual = QtosItens;
             IndiceAtualMudou.Invoke(this, new EventArgs());
-            itens.Add(item);
+            Itens.Add(item);
 
             lbTitulo.Text = item;
-            lbTitulo.Left = Width / 2 - lbTitulo.Width / 2;
             lbTitulo.Show();
 
             TestarBotoes();
@@ -38,26 +34,25 @@ namespace apAplicativos
         public void Remover(string item)
         {
             for (int i = 0; i < QtosItens; i++)
-                if (itens[i] == item)
+                if (Itens[i] == item)
                 {
-                    itens.RemoveAt(i);
+                    Itens.RemoveAt(i);
                     break;
                 }
             if (QtosItens == 0)
                 lbTitulo.Hide();
             else
             {
-                indiceAtual--;
-                lbTitulo.Text = itens[indiceAtual];
-                lbTitulo.Left = Width / 2 - lbTitulo.Width / 2;
+                IndiceAtual--;
+                lbTitulo.Text = Itens[IndiceAtual];
                 IndiceAtualMudou.Invoke(this, new EventArgs());
             }
             TestarBotoes();
         }
         private void TestarBotoes()
         {
-            btnEsquerda.Enabled = indiceAtual > 0;
-            btnDireita.Enabled = indiceAtual < QtosItens - 1;
+            btnEsquerda.Enabled = IndiceAtual > 0;
+            btnDireita.Enabled = IndiceAtual < QtosItens - 1;
         }
 
         public event EventHandler<EventArgs> IndiceAtualMudou;
@@ -65,9 +60,8 @@ namespace apAplicativos
         private void btnEsquerda_Click(object sender, EventArgs e)
         {
             lbTitulo.Focus();
-            indiceAtual--;
-            lbTitulo.Text = itens[indiceAtual];
-            lbTitulo.Left = Width / 2 - lbTitulo.Width / 2;
+            IndiceAtual--;
+            lbTitulo.Text = Itens[IndiceAtual];
             TestarBotoes();
             IndiceAtualMudou.Invoke(this, new EventArgs());
 
@@ -75,9 +69,8 @@ namespace apAplicativos
         private void btnDireita_Click(object sender, EventArgs e)
         {
             lbTitulo.Focus();
-            indiceAtual++;
-            lbTitulo.Text = itens[indiceAtual];
-            lbTitulo.Left = Width / 2 - lbTitulo.Width / 2;
+            IndiceAtual++;
+            lbTitulo.Text = Itens[IndiceAtual];
             TestarBotoes();
             IndiceAtualMudou.Invoke(this, new EventArgs());
         }

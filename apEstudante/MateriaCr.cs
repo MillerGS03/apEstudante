@@ -28,7 +28,7 @@ namespace apEstudante
             string diaFormatado = dia.ToString();
             if (dia == DiasDaSemana.Terca)
                 diaFormatado = "Terça";
-            return Nome.Trim().PadRight(20) + Horario.PadLeft(5, '0') + diaFormatado;
+            return Nome.Trim().PadRight(50) + Horario.PadLeft(5, '0') + diaFormatado;
         }
     }
 }

@@ -38,9 +38,9 @@ namespace apEstudante
             {
                 string linha = arquivoCronogramas.ReadLine();
 
-                string nomeMateria = linha.Substring(0, 20).Trim();
-                string horario = linha.Substring(20, 5);
-                string dia = linha.Substring(25);
+                string nomeMateria = linha.Substring(0, 50).Trim();
+                string horario = linha.Substring(50, 5);
+                string dia = linha.Substring(55);
 
                 Adicionar(horario, nomeMateria, dia);
             }
@@ -118,16 +118,21 @@ namespace apEstudante
         private void btnRemoverSelecionado_Click(object sender, EventArgs e)
         {
 
+            Remover(dgCronogramas.SelectedCells[0].RowIndex,
+                    dgCronogramas.SelectedCells[0].ColumnIndex);
+
+            btnRemoverSelecionado.Enabled = false;
+
+        }
+        public void Remover(int indiceLinha, int indiceColuna)
+        {
             try
             {
-                btnRemoverSelecionado.Enabled = false;
-
-                int indiceLinha = dgCronogramas.SelectedCells[0].OwningRow.Index;
                 for (int i = 0; i < materiasCronograma.Count; i++)
-                    if (materiasCronograma[i].Dia == CodigoDoDia(dgCronogramas.Rows[0].Cells[dgCronogramas.SelectedCells[0].ColumnIndex].OwningColumn.HeaderCell.Value.ToString()) &&
-                        materiasCronograma[i].Horario == dgCronogramas.Rows[(dgCronogramas.SelectedCells[0].RowIndex)].HeaderCell.Value.ToString())
+                    if (materiasCronograma[i].Dia == CodigoDoDia(dgCronogramas.Rows[0].Cells[indiceColuna].OwningColumn.HeaderCell.Value.ToString()) &&
+                        materiasCronograma[i].Horario == dgCronogramas.Rows[indiceLinha].HeaderCell.Value.ToString())
                         materiasCronograma.RemoveAt(i);
-                dgCronogramas.SelectedCells[0].Value = "";
+                dgCronogramas.Rows[indiceLinha].Cells[indiceColuna].Value = "";
                 // Remover linha se não tiver mais nenhuma matéria
                 bool linhaVazia = true;
                 for (int c = 0; c < dgCronogramas.ColumnCount; c++)
@@ -143,7 +148,6 @@ namespace apEstudante
 
             VerificarInformacoes();
         }
-
         public void Adicionar(string horario, string nomeMateria, string dia)
         {
             if (horario.IndexOf(':') == 1)
@@ -152,12 +156,25 @@ namespace apEstudante
             foreach (MateriaCr materia in materiasCronograma)
                 if (materia.Horario == horario && materia.Dia == CodigoDoDia(dia))
                 {
-                    materia.Nome = nomeMateria;
+                    if (nomeMateria.Trim() != "")
+                    {
+                        materia.Nome = nomeMateria;
+
+                        foreach (DataGridViewRow linha in dgCronogramas.Rows)
+                            if (linha.HeaderCell.Value.ToString() == horario)
+                                linha.Cells[(int)CodigoDoDia(dia)].Value = nomeMateria;
+                    }
+                    else
+                    {
+                        for (int i = 0; i < dgCronogramas.RowCount; i++)
+                            if (dgCronogramas.Rows[i].HeaderCell.Value.ToString() == horario)
+                                Remover(i, (int)CodigoDoDia(dia));
+                    }
                     return;
                 }
+
             MateriaCr novaMateria = new MateriaCr(nomeMateria, horario, CodigoDoDia(dia));
             materiasCronograma.Add(novaMateria);
-            btnAdicionar.Enabled = false;
             bool existeHorario = false;
             int qualLinha = 0;
             for (int i = 0; i < dgCronogramas.RowCount; i++)
@@ -228,10 +245,9 @@ namespace apEstudante
             string horario = txtHorario.Text;
             string nomeMateria = txtMateria.Text;
             string dia = cbxDia.SelectedItem.ToString();
-            Adicionar(horario, nomeMateria, dia);
-            btnAdicionar.Text = "Adicionar";
+            Adicionar(horario, nomeMateria.Trim(), dia);
+            btnAdicionar.Text = "Atualizar";
         }
-    
         private void VerificarInformacoes()
         {
             try
@@ -445,13 +461,34 @@ namespace apEstudante
             int tamanhoColunas = (dgCronogramas.Width - 82) / 7;
             for (int i = 0; i < 7; i++)
                 dgCronogramas.Columns[i].Width = tamanhoColunas;
+
+            gbAdicionar.Left = (Width - gbAdicionar.Width) / 2;
+            btnRemoverSelecionado.Left = (Width - btnRemoverSelecionado.Width) / 2;
+            pnlControleDaLista.Width = 311 + (Width - 718) / 3;
+            if (pnlControleDaLista.Width > 468)
+            {
+                pnlControleDaLista.Width = 468;
+                pnlLista.Width = tabPage2.Width - 473;
+            }
+            else
+                pnlLista.Width = 409 + 2 * (Width - 718) / 3;
+
+            btnCheckUncheck.Width = pnlLista.Width / 2 - 7;
+            btnRemoverConteudo.Width = btnCheckUncheck.Width;
+            btnRemoverConteudo.Left = pnlLista.Width - btnRemoverConteudo.Width - 2;
         }
 
         private void dgCronogramas_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
             string horario = (dgCronogramas.Rows[e.RowIndex].HeaderCell.Value).ToString();
             object valor = dgCronogramas.Rows[e.RowIndex].Cells[e.ColumnIndex].Value;
-            string nomeMateria = valor == null ? "" : valor.ToString();
+            string nomeMateria = valor == null ? "" : valor.ToString().Trim();
+
+            if (nomeMateria.Trim().Length > 50)
+            {
+                nomeMateria = nomeMateria.Substring(0, 50);
+                dgCronogramas.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = nomeMateria;
+            }
             string dia = cbxDia.Items[e.ColumnIndex].ToString();
 
             if (nomeMateria.Trim() == "")
