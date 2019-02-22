@@ -24,6 +24,7 @@ namespace apEstudante
         }
         public string PalavraChave { get; set; }
         public string Definicao { get; set; }
+        public bool UsandoImagem { get => usandoImagem; }
 
         private bool usandoImagem = false; 
         public Image DefinicaoImagem { get; set; }

@@ -253,6 +253,15 @@ namespace apEstudante
             btnAdicionarEditarFlashcard.Left = gbNovoFlashcard.Width / 2 - btnAdicionarEditarFlashcard.Width - 5;
             btnCancelarEdicao.Left = gbNovoFlashcard.Width / 2 + 5;
             btnCancelarEdicao.Show();
+
+            Flashcard flc = categorias[cbxExibirCategoria.SelectedIndex].flashcards[lsbFlashcards.SelectedIndex];
+            txtPalavraChave.Text = flc.PalavraChave;
+            cbxCategoria.SelectedIndex = cbxExibirCategoria.SelectedIndex;
+            rbTexto.Checked = !flc.UsandoImagem;
+            if (flc.UsandoImagem)
+                pnImagem.BackgroundImage = flc.DefinicaoImagem;
+            else
+                txtDefinicao.Text = flc.Definicao;
         }
     }
 }
