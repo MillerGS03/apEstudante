@@ -27,31 +27,9 @@ namespace apEstudante
             if (File.Exists(caminhoFlashcards))
             {
                 StreamReader arquivo = new StreamReader(caminhoFlashcards);
-                while (!arquivo.EndOfStream)
-                {
-                    string linha = arquivo.ReadLine();
-                    string categoria = linha.Substring(0, 50).Trim();
-                    categorias.Add(new CategoriaFlashcard(categoria));
-                    lsbCategorias.Items.Add(categoria);
-                    cbxCategoria.Items.Add(categoria);
-                    cbxExibirCategoria.Items.Add(categoria);
-                    txtMateria_TextChanged(this, new EventArgs());
-                    gbNovoFlashcard.Enabled = true;
 
-                    for (int i = 0; i < (linha.Length - 50) / 291; i++)
-                    {
-                        int indiceComeco = 50 + i * 291;
-                        string palavraChave = linha.Substring(indiceComeco, 50).Trim();
-                        bool usaImagem = linha[indiceComeco + 50] == '1';
-                        if (!usaImagem)
-                        {
-                            string definicao = linha.Substring(indiceComeco + 51).Trim();
-                            categorias[categorias.Count - 1].flashcards.Add(new Flashcard(palavraChave, definicao));
-                        }
-                        else
-                            categorias[categorias.Count - 1].flashcards.Add(new Flashcard(palavraChave, new Bitmap(1, 1)));
-                    }
-                }
+                while (!arquivo.EndOfStream)          
+                    AdicionarCategoria(CategoriaFlashcard.LerRegistro(arquivo));
                 arquivo.Close();
             }
         }
@@ -99,12 +77,19 @@ namespace apEstudante
 
         private void btnAdicionarCategoria_Click(object sender, EventArgs e)
         {
-            categorias.Add(new CategoriaFlashcard(txtMateria.Text.Trim()));
-            lsbCategorias.Items.Add(txtMateria.Text.Trim());
-            cbxCategoria.Items.Add(txtMateria.Text.Trim());
-            cbxExibirCategoria.Items.Add(txtMateria.Text.Trim());
-            txtMateria_TextChanged(this, new EventArgs());
-            gbNovoFlashcard.Enabled = true;
+            AdicionarCategoria(new CategoriaFlashcard(txtMateria.Text.Trim()));
+        }
+        private void AdicionarCategoria(CategoriaFlashcard categoria)
+        {
+            if (categoria != null)
+            {
+                categorias.Add(categoria);
+                lsbCategorias.Items.Add(categoria.Nome);
+                cbxCategoria.Items.Add(categoria.Nome);
+                cbxExibirCategoria.Items.Add(categoria.Nome);
+                txtMateria_TextChanged(this, new EventArgs());
+                gbNovoFlashcard.Enabled = true;
+            }
         }
 
         private void lsbCategorias_SelectedIndexChanged(object sender, EventArgs e)

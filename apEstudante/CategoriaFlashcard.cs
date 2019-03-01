@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,10 +17,24 @@ namespace apEstudante
         }
         public override string ToString()
         {
-            string saida = Nome.PadRight(50);
+            string saida = Nome.PadRight(50) + flashcards.Count + "\r\n";
             foreach (Flashcard flsc in flashcards)
                 saida += flsc.ToString();
             return saida;
+        }
+        public static CategoriaFlashcard LerRegistro(StreamReader arquivo)
+        {
+            if (arquivo.EndOfStream)
+                throw new Exception("Arquivo terminado");
+            string linha = arquivo.ReadLine();
+            if (linha == "")
+                return null;
+            string nomeCategoria = linha.Substring(0, 50).Trim();
+            int qtosFlashcards = int.Parse(linha.Substring(50));
+            CategoriaFlashcard ctg = new CategoriaFlashcard(nomeCategoria);
+            for (int i = 0; i < qtosFlashcards; i++)               
+                ctg.flashcards.Add(Flashcard.LerRegistro(arquivo));
+            return ctg;
         }
     }
 }
