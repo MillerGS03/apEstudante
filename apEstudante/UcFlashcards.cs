@@ -234,15 +234,28 @@ namespace apEstudante
                 lblCategoria.Left = 9;
                 cbxExibirCategoria.Left = 9;
             }
+
+            btnEditarFlashcard.Width = 110 + (pnlListaItens.Width - 238) / 2;
+            btnRemoverFlashcard.Width = btnEditarFlashcard.Width;
+            btnRemoverFlashcard.Left = lsbFlashcards.Right - btnRemoverFlashcard.Width;
         }
 
         private void tpGerenciar_Resize(object sender, EventArgs e)
         {
             pnlNovoFlashcard.Height = tpGerenciar.Height / 2 - 1;
-            panel3.Top = tpGerenciar.Height / 2;
+            pnlDivisaoHorizontal.Top = tpGerenciar.Height / 2;
             pnlCategorias.Top = tpGerenciar.Height / 2 + 1;
             pnlCategorias.Height = tpGerenciar.Height / 2 - 2;
-            gbAdicionarCategoria.Top = (pnlCategorias.Height - gbAdicionarCategoria.Height) / 2;
+
+            pnlListaItens.Width = 238 + 2 * (tpGerenciar.Width - 708) / 3;
+            pnlNovoFlashcard.Width = 466 + (tpGerenciar.Width - 708) / 3;
+            pnlCategorias.Width = pnlNovoFlashcard.Width;
+            pnlDivisaoHorizontal.Width = pnlNovoFlashcard.Width;
+
+            pnlDivisaoVertical.Left = pnlListaItens.Left + pnlListaItens.Width;
+            pnlNovoFlashcard.Left = pnlDivisaoVertical.Left;
+            pnlCategorias.Left = pnlDivisaoVertical.Left;
+            pnlDivisaoHorizontal.Left = pnlDivisaoVertical.Left;
         }
 
         private void btnEditarFlashcard_Click(object sender, EventArgs e)
@@ -262,6 +275,38 @@ namespace apEstudante
                 pnImagem.BackgroundImage = flc.DefinicaoImagem;
             else
                 txtDefinicao.Text = flc.Definicao;
+        }
+
+        private void pnlNovoFlashcard_Resize(object sender, EventArgs e)
+        {
+            if (btnCancelarEdicao.Visible)
+            {
+                btnAdicionarEditarFlashcard.Left = gbNovoFlashcard.Width / 2 - btnAdicionarEditarFlashcard.Width - 5;
+                btnCancelarEdicao.Left = gbNovoFlashcard.Width / 2 + 5;
+            }
+            else
+                btnAdicionarEditarFlashcard.Left = (gbNovoFlashcard.Width - btnAdicionarEditarFlashcard.Width) / 2;
+        }
+
+        private void pnlCategorias_Resize(object sender, EventArgs e)
+        {
+            gbAdicionarCategoria.Top = (pnlCategorias.Height - gbAdicionarCategoria.Height) / 2;
+            lsbCategorias.Width = 186 + (pnlCategorias.Width - 466) / 2;
+            lsbCategorias.Height = btnRemoverCategoria.Top - 10 - lsbCategorias.Top;
+
+            btnRemoverCategoria.Width = lsbCategorias.Width;
+            gbAdicionarCategoria.Width = 265 + (pnlCategorias.Width - 466) / 2;
+            gbAdicionarCategoria.Left = lsbCategorias.Right + 3;
+        }
+
+        private void btnCancelarEdicao_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void gbAdicionarCategoria_Resize(object sender, EventArgs e)
+        {
+            btnAdicionarCategoria.Left = txtMateria.Left + (txtMateria.Width - btnAdicionarCategoria.Width) / 2;
         }
     }
 }
