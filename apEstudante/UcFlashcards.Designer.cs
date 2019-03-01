@@ -274,7 +274,6 @@
             // 
             this.btnCancelarEdicao.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnCancelarEdicao.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btnCancelarEdicao.Enabled = false;
             this.btnCancelarEdicao.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.btnCancelarEdicao.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancelarEdicao.ForeColor = System.Drawing.Color.White;
@@ -359,7 +358,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtDefinicao.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDefinicao.Location = new System.Drawing.Point(388, 98);
-            this.txtDefinicao.MaxLength = 120;
+            this.txtDefinicao.MaxLength = 240;
             this.txtDefinicao.Multiline = true;
             this.txtDefinicao.Name = "txtDefinicao";
             this.txtDefinicao.Size = new System.Drawing.Size(277, 86);

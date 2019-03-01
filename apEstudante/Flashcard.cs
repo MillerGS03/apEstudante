@@ -24,7 +24,7 @@ namespace apEstudante
         }
         public string PalavraChave { get; set; }
         public string Definicao { get; set; }
-        public bool UsandoImagem { get => usandoImagem; }
+        public bool UsandoImagem { get => usandoImagem; set => usandoImagem = value; }
 
         private bool usandoImagem = false; 
         public Image DefinicaoImagem { get; set; }
@@ -36,7 +36,7 @@ namespace apEstudante
                 saida += "1";
             else
                 saida += "0";
-            saida += Definicao.PadRight(120);
+            saida += Definicao.PadRight(240);
             return saida;
         }
     }

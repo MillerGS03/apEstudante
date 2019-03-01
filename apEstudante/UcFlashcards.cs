@@ -38,9 +38,9 @@ namespace apEstudante
                     txtMateria_TextChanged(this, new EventArgs());
                     gbNovoFlashcard.Enabled = true;
 
-                    for (int i = 0; i < (linha.Length - 50) / 171; i++)
+                    for (int i = 0; i < (linha.Length - 50) / 291; i++)
                     {
-                        int indiceComeco = 50 + i * 171;
+                        int indiceComeco = 50 + i * 291;
                         string palavraChave = linha.Substring(indiceComeco, 50).Trim();
                         bool usaImagem = linha[indiceComeco + 50] == '1';
                         if (!usaImagem)
@@ -117,6 +117,11 @@ namespace apEstudante
             if (txtPalavraChave.Text.Trim() != "" && txtPalavraChave.Text.Trim() != null && cbxCategoria.SelectedIndex != -1 &&
                 ((rbTexto.Checked && txtDefinicao.Text.Trim() != "" && txtDefinicao.Text.Trim() != null) || (rbImagem.Checked && pnImagem.BackgroundImage != null)))
             {
+                if (btnAdicionarEditarFlashcard.Text == "Atualizar")
+                {
+                    btnAdicionarEditarFlashcard.Enabled = true;
+                    return;
+                }
                 bool existe = false;
                 foreach (CategoriaFlashcard cat in categorias)
                     foreach (Flashcard flsc in cat.flashcards)
@@ -158,7 +163,19 @@ namespace apEstudante
         {
             if (btnAdicionarEditarFlashcard.Text == "Atualizar")
             {
-
+                flscEmEdicao.PalavraChave = txtPalavraChave.Text.Trim();
+                flscEmEdicao.UsandoImagem = rbImagem.Checked;
+                if (rbImagem.Checked)
+                {
+                    flscEmEdicao.Definicao = "";
+                    flscEmEdicao.DefinicaoImagem = pnImagem.BackgroundImage;
+                }
+                else
+                {
+                    flscEmEdicao.Definicao = txtDefinicao.Text;
+                    flscEmEdicao.DefinicaoImagem = null;
+                }
+                btnCancelarEdicao.PerformClick();
             }
             else
             {
@@ -267,15 +284,16 @@ namespace apEstudante
             btnCancelarEdicao.Left = gbNovoFlashcard.Width / 2 + 5;
             btnCancelarEdicao.Show();
 
-            Flashcard flc = categorias[cbxExibirCategoria.SelectedIndex].flashcards[lsbFlashcards.SelectedIndex];
-            txtPalavraChave.Text = flc.PalavraChave;
+            flscEmEdicao = categorias[cbxExibirCategoria.SelectedIndex].flashcards[lsbFlashcards.SelectedIndex];
+            txtPalavraChave.Text = flscEmEdicao.PalavraChave;
             cbxCategoria.SelectedIndex = cbxExibirCategoria.SelectedIndex;
-            rbTexto.Checked = !flc.UsandoImagem;
-            if (flc.UsandoImagem)
-                pnImagem.BackgroundImage = flc.DefinicaoImagem;
+            rbTexto.Checked = !flscEmEdicao.UsandoImagem;
+            if (flscEmEdicao.UsandoImagem)
+                pnImagem.BackgroundImage = flscEmEdicao.DefinicaoImagem;
             else
-                txtDefinicao.Text = flc.Definicao;
+                txtDefinicao.Text = flscEmEdicao.Definicao;
         }
+        Flashcard flscEmEdicao = null;
 
         private void pnlNovoFlashcard_Resize(object sender, EventArgs e)
         {
@@ -301,7 +319,14 @@ namespace apEstudante
 
         private void btnCancelarEdicao_Click(object sender, EventArgs e)
         {
-
+            btnAdicionarEditarFlashcard.Text = "Adicionar";
+            btnAdicionarEditarFlashcard.Left = (gbNovoFlashcard.Width - btnAdicionarEditarFlashcard.Width) / 2;
+            btnCancelarEdicao.Hide();
+            txtPalavraChave.Text = "";
+            txtDefinicao.Text = "";
+            rbTexto.Select();
+            pnImagem.BackgroundImage = null;
+            flscEmEdicao = null;
         }
 
         private void gbAdicionarCategoria_Resize(object sender, EventArgs e)
