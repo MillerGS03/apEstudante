@@ -36,17 +36,20 @@ namespace apEstudante
             if (usandoImagem)
                 saida += "1";
             else
+            {
                 saida += "0";
 
-            int qtasLinhas = 1;
-            for (int i = 0; i < Definicao.Length; i++)
-                if (Definicao[i] == '\n')
-                    qtasLinhas++;
+                int qtasLinhas = 1;
+                for (int i = 0; i < Definicao.Length; i++)
+                    if (Definicao[i] == '\n')
+                        qtasLinhas++;
 
-            saida += "\r\n" + qtasLinhas + "\r\n" + Definicao.PadRight(240) + "\r\n";
-            return saida;
+                saida += "\r\n" + qtasLinhas + "\r\n" + Definicao.PadRight(240);
+            }
+
+            return saida + "\r\n";
         }
-        public static Flashcard LerRegistro(StreamReader arquivo)
+        public static Flashcard LerRegistro(StreamReader arquivo, string caminhoImagens)
         {
             if (arquivo.EndOfStream)
                 throw new Exception("Arquivo terminado");
@@ -67,8 +70,9 @@ namespace apEstudante
             }
             else
             {
-                arquivo.ReadLine();
-                flsc = new Flashcard(nomeFlashcard, new Bitmap(1, 1));
+                Bitmap imagemLida = (Bitmap) Image.FromFile(caminhoImagens + "\\" + nomeFlashcard + ".bmp");
+                flsc = new Flashcard(nomeFlashcard, new Bitmap(imagemLida));
+                imagemLida.Dispose();
             }
 
             return flsc;

@@ -14,7 +14,8 @@ namespace apEstudante
     {
         List<CategoriaFlashcard> categorias = new List<CategoriaFlashcard>();
         string caminhoFlashcards = Application.LocalUserAppDataPath + "\\flashcards.txt";
-        //List<Flashcard> flashcards = new List<Flashcard>();
+        string caminhoImagens = Application.LocalUserAppDataPath + "\\imagensFlashcards";
+
         public UcFlashcards()
         {
             InitializeComponent();
@@ -28,8 +29,8 @@ namespace apEstudante
             {
                 StreamReader arquivo = new StreamReader(caminhoFlashcards);
 
-                while (!arquivo.EndOfStream)          
-                    AdicionarCategoria(CategoriaFlashcard.LerRegistro(arquivo));
+                while (!arquivo.EndOfStream)
+                    AdicionarCategoria(CategoriaFlashcard.LerRegistro(arquivo, caminhoImagens));
                 arquivo.Close();
             }
         }
@@ -195,10 +196,32 @@ namespace apEstudante
 
         public void GravarDados()
         {
+            LimparPasta(caminhoImagens);
+
             StreamWriter arquivo = new StreamWriter(caminhoFlashcards);
+
             foreach (CategoriaFlashcard ctfc in categorias)
+            {
                 arquivo.WriteLine(ctfc.ToString());
+
+                Directory.CreateDirectory(caminhoImagens + "\\" + ctfc.Nome);
+
+                foreach (Flashcard flsc in ctfc.flashcards)
+                    if (flsc.UsandoImagem)
+                        flsc.DefinicaoImagem.Save(caminhoImagens + "\\" + ctfc.Nome + "\\" + flsc.PalavraChave + ".bmp");
+            }
+
             arquivo.Close();
+        }
+        private void LimparPasta(string nomePasta)
+        {
+            DirectoryInfo dir = new DirectoryInfo(nomePasta);
+
+            foreach (FileInfo fi in dir.GetFiles())
+                fi.Delete();
+
+            foreach (DirectoryInfo di in dir.GetDirectories())
+                di.Delete(true);
         }
 
         private void lsbFlashcards_SelectedIndexChanged(object sender, EventArgs e)
@@ -272,7 +295,10 @@ namespace apEstudante
             flscEmEdicao = categorias[cbxExibirCategoria.SelectedIndex].flashcards[lsbFlashcards.SelectedIndex];
             txtPalavraChave.Text = flscEmEdicao.PalavraChave;
             cbxCategoria.SelectedIndex = cbxExibirCategoria.SelectedIndex;
+
             rbTexto.Checked = !flscEmEdicao.UsandoImagem;
+            rbImagem.Checked = flscEmEdicao.UsandoImagem;
+
             if (flscEmEdicao.UsandoImagem)
                 pnImagem.BackgroundImage = flscEmEdicao.DefinicaoImagem;
             else
@@ -312,6 +338,7 @@ namespace apEstudante
             rbTexto.Select();
             pnImagem.BackgroundImage = null;
             flscEmEdicao = null;
+            lblNovoEditarFlashcard.Text = "Novo flashcard";
         }
 
         private void gbAdicionarCategoria_Resize(object sender, EventArgs e)

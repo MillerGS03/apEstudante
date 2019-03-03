@@ -288,6 +288,9 @@
             // 
             // pnImagem
             // 
+            this.pnImagem.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.pnImagem.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pnImagem.Location = new System.Drawing.Point(244, 96);
             this.pnImagem.Name = "pnImagem";

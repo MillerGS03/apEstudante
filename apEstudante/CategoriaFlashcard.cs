@@ -22,7 +22,7 @@ namespace apEstudante
                 saida += flsc.ToString();
             return saida;
         }
-        public static CategoriaFlashcard LerRegistro(StreamReader arquivo)
+        public static CategoriaFlashcard LerRegistro(StreamReader arquivo, string caminhoImagensFlashcards)
         {
             if (arquivo.EndOfStream)
                 throw new Exception("Arquivo terminado");
@@ -33,7 +33,7 @@ namespace apEstudante
             int qtosFlashcards = int.Parse(linha.Substring(50));
             CategoriaFlashcard ctg = new CategoriaFlashcard(nomeCategoria);
             for (int i = 0; i < qtosFlashcards; i++)               
-                ctg.flashcards.Add(Flashcard.LerRegistro(arquivo));
+                ctg.flashcards.Add(Flashcard.LerRegistro(arquivo, caminhoImagensFlashcards + "\\" + nomeCategoria));
             return ctg;
         }
     }
