@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace apEstudante
 {
-    class Flashcard
+    public class Flashcard
     {
         public Flashcard(string palavraChave, string definicao)
         {
