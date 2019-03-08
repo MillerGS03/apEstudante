@@ -28,51 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.painelDoubleBuffered1 = new apEstudante.PainelDoubleBuffered();
-            this.painelDoubleBuffered2 = new apEstudante.PainelDoubleBuffered();
-            this.painelDoubleBuffered3 = new apEstudante.PainelDoubleBuffered();
-            this.painelDoubleBuffered4 = new apEstudante.PainelDoubleBuffered();
             this.lblCaixa = new System.Windows.Forms.Label();
             this.lblFrequencia = new System.Windows.Forms.Label();
             this.lsbFlashcards = new System.Windows.Forms.ListBox();
             this.lblProximaSessao = new System.Windows.Forms.Label();
+            this.painelDoubleBuffered3 = new apEstudante.PainelDoubleBuffered();
+            this.painelDoubleBuffered4 = new apEstudante.PainelDoubleBuffered();
+            this.painelDoubleBuffered2 = new apEstudante.PainelDoubleBuffered();
+            this.painelDoubleBuffered1 = new apEstudante.PainelDoubleBuffered();
             this.SuspendLayout();
-            // 
-            // painelDoubleBuffered1
-            // 
-            this.painelDoubleBuffered1.BackColor = System.Drawing.Color.Black;
-            this.painelDoubleBuffered1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.painelDoubleBuffered1.Location = new System.Drawing.Point(0, 0);
-            this.painelDoubleBuffered1.Name = "painelDoubleBuffered1";
-            this.painelDoubleBuffered1.Size = new System.Drawing.Size(2, 448);
-            this.painelDoubleBuffered1.TabIndex = 0;
-            // 
-            // painelDoubleBuffered2
-            // 
-            this.painelDoubleBuffered2.BackColor = System.Drawing.Color.Black;
-            this.painelDoubleBuffered2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.painelDoubleBuffered2.Location = new System.Drawing.Point(2, 0);
-            this.painelDoubleBuffered2.Name = "painelDoubleBuffered2";
-            this.painelDoubleBuffered2.Size = new System.Drawing.Size(261, 2);
-            this.painelDoubleBuffered2.TabIndex = 1;
-            // 
-            // painelDoubleBuffered3
-            // 
-            this.painelDoubleBuffered3.BackColor = System.Drawing.Color.Black;
-            this.painelDoubleBuffered3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.painelDoubleBuffered3.Location = new System.Drawing.Point(2, 446);
-            this.painelDoubleBuffered3.Name = "painelDoubleBuffered3";
-            this.painelDoubleBuffered3.Size = new System.Drawing.Size(259, 2);
-            this.painelDoubleBuffered3.TabIndex = 1;
-            // 
-            // painelDoubleBuffered4
-            // 
-            this.painelDoubleBuffered4.BackColor = System.Drawing.Color.Black;
-            this.painelDoubleBuffered4.Dock = System.Windows.Forms.DockStyle.Right;
-            this.painelDoubleBuffered4.Location = new System.Drawing.Point(261, 2);
-            this.painelDoubleBuffered4.Name = "painelDoubleBuffered4";
-            this.painelDoubleBuffered4.Size = new System.Drawing.Size(2, 446);
-            this.painelDoubleBuffered4.TabIndex = 1;
             // 
             // lblCaixa
             // 
@@ -90,8 +54,8 @@
             // 
             this.lblFrequencia.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblFrequencia.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFrequencia.Location = new System.Drawing.Point(2, 31);
+            this.lblFrequencia.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFrequencia.Location = new System.Drawing.Point(2, 50);
             this.lblFrequencia.Name = "lblFrequencia";
             this.lblFrequencia.Size = new System.Drawing.Size(259, 25);
             this.lblFrequencia.TabIndex = 3;
@@ -114,17 +78,52 @@
             this.lblProximaSessao.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblProximaSessao.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblProximaSessao.Location = new System.Drawing.Point(2, 58);
+            this.lblProximaSessao.Location = new System.Drawing.Point(2, 27);
             this.lblProximaSessao.Name = "lblProximaSessao";
             this.lblProximaSessao.Size = new System.Drawing.Size(259, 25);
             this.lblProximaSessao.TabIndex = 5;
             this.lblProximaSessao.Text = "Próxima sessão: hoje";
             this.lblProximaSessao.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // painelDoubleBuffered3
+            // 
+            this.painelDoubleBuffered3.BackColor = System.Drawing.Color.Black;
+            this.painelDoubleBuffered3.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.painelDoubleBuffered3.Location = new System.Drawing.Point(2, 446);
+            this.painelDoubleBuffered3.Name = "painelDoubleBuffered3";
+            this.painelDoubleBuffered3.Size = new System.Drawing.Size(259, 2);
+            this.painelDoubleBuffered3.TabIndex = 1;
+            // 
+            // painelDoubleBuffered4
+            // 
+            this.painelDoubleBuffered4.BackColor = System.Drawing.Color.Black;
+            this.painelDoubleBuffered4.Dock = System.Windows.Forms.DockStyle.Right;
+            this.painelDoubleBuffered4.Location = new System.Drawing.Point(261, 2);
+            this.painelDoubleBuffered4.Name = "painelDoubleBuffered4";
+            this.painelDoubleBuffered4.Size = new System.Drawing.Size(2, 446);
+            this.painelDoubleBuffered4.TabIndex = 1;
+            // 
+            // painelDoubleBuffered2
+            // 
+            this.painelDoubleBuffered2.BackColor = System.Drawing.Color.Black;
+            this.painelDoubleBuffered2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.painelDoubleBuffered2.Location = new System.Drawing.Point(2, 0);
+            this.painelDoubleBuffered2.Name = "painelDoubleBuffered2";
+            this.painelDoubleBuffered2.Size = new System.Drawing.Size(261, 2);
+            this.painelDoubleBuffered2.TabIndex = 1;
+            // 
+            // painelDoubleBuffered1
+            // 
+            this.painelDoubleBuffered1.BackColor = System.Drawing.Color.Black;
+            this.painelDoubleBuffered1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.painelDoubleBuffered1.Location = new System.Drawing.Point(0, 0);
+            this.painelDoubleBuffered1.Name = "painelDoubleBuffered1";
+            this.painelDoubleBuffered1.Size = new System.Drawing.Size(2, 448);
+            this.painelDoubleBuffered1.TabIndex = 0;
+            // 
             // CaixaFlashcards
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.Controls.Add(this.lblProximaSessao);
             this.Controls.Add(this.lsbFlashcards);
             this.Controls.Add(this.lblFrequencia);

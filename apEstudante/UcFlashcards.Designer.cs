@@ -32,6 +32,10 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.caixaFlashcards4 = new apEstudante.CaixaFlashcards();
+            this.caixaFlashcards3 = new apEstudante.CaixaFlashcards();
+            this.caixaFlashcards2 = new apEstudante.CaixaFlashcards();
+            this.caixaFlashcards1 = new apEstudante.CaixaFlashcards();
             this.tpGerenciar = new System.Windows.Forms.TabPage();
             this.pnlCategorias = new System.Windows.Forms.Panel();
             this.lsbCategorias = new System.Windows.Forms.ListBox();
@@ -66,7 +70,10 @@
             this.pnlDivisaoHorizontal = new System.Windows.Forms.Panel();
             this.pnlDivisaoVertical = new System.Windows.Forms.Panel();
             this.ofdImgFlashcard = new System.Windows.Forms.OpenFileDialog();
+            this.btnEsquerda = new System.Windows.Forms.Button();
+            this.btnDireita = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
+            this.tabPage1.SuspendLayout();
             this.tpGerenciar.SuspendLayout();
             this.pnlCategorias.SuspendLayout();
             this.gbAdicionarCategoria.SuspendLayout();
@@ -100,6 +107,12 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.btnDireita);
+            this.tabPage1.Controls.Add(this.btnEsquerda);
+            this.tabPage1.Controls.Add(this.caixaFlashcards4);
+            this.tabPage1.Controls.Add(this.caixaFlashcards3);
+            this.tabPage1.Controls.Add(this.caixaFlashcards2);
+            this.tabPage1.Controls.Add(this.caixaFlashcards1);
             this.tabPage1.Location = new System.Drawing.Point(4, 31);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
@@ -107,6 +120,51 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Revisar";
             this.tabPage1.UseVisualStyleBackColor = true;
+            this.tabPage1.Resize += new System.EventHandler(this.tabPage1_Resize);
+            // 
+            // caixaFlashcards4
+            // 
+            this.caixaFlashcards4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.caixaFlashcards4.Frequencia = 14;
+            this.caixaFlashcards4.Location = new System.Drawing.Point(813, 6);
+            this.caixaFlashcards4.Name = "caixaFlashcards4";
+            this.caixaFlashcards4.NumeroCaixa = 1;
+            this.caixaFlashcards4.Size = new System.Drawing.Size(263, 448);
+            this.caixaFlashcards4.TabIndex = 3;
+            // 
+            // caixaFlashcards3
+            // 
+            this.caixaFlashcards3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.caixaFlashcards3.Frequencia = 7;
+            this.caixaFlashcards3.Location = new System.Drawing.Point(544, 6);
+            this.caixaFlashcards3.Name = "caixaFlashcards3";
+            this.caixaFlashcards3.NumeroCaixa = 1;
+            this.caixaFlashcards3.Size = new System.Drawing.Size(263, 448);
+            this.caixaFlashcards3.TabIndex = 2;
+            // 
+            // caixaFlashcards2
+            // 
+            this.caixaFlashcards2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.caixaFlashcards2.Frequencia = 3;
+            this.caixaFlashcards2.Location = new System.Drawing.Point(275, 6);
+            this.caixaFlashcards2.Name = "caixaFlashcards2";
+            this.caixaFlashcards2.NumeroCaixa = 1;
+            this.caixaFlashcards2.Size = new System.Drawing.Size(263, 448);
+            this.caixaFlashcards2.TabIndex = 1;
+            // 
+            // caixaFlashcards1
+            // 
+            this.caixaFlashcards1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.caixaFlashcards1.Frequencia = 1;
+            this.caixaFlashcards1.Location = new System.Drawing.Point(6, 6);
+            this.caixaFlashcards1.Name = "caixaFlashcards1";
+            this.caixaFlashcards1.NumeroCaixa = 1;
+            this.caixaFlashcards1.Size = new System.Drawing.Size(263, 448);
+            this.caixaFlashcards1.TabIndex = 0;
             // 
             // tpGerenciar
             // 
@@ -532,6 +590,30 @@
             this.ofdImgFlashcard.FileName = "Flashcard";
             this.ofdImgFlashcard.Filter = "Arquivos de Imagem | *.png; *.jpg; *.jpeg; *.gif";
             // 
+            // btnEsquerda
+            // 
+            this.btnEsquerda.Enabled = false;
+            this.btnEsquerda.Location = new System.Drawing.Point(6, 40);
+            this.btnEsquerda.Name = "btnEsquerda";
+            this.btnEsquerda.Size = new System.Drawing.Size(50, 50);
+            this.btnEsquerda.TabIndex = 4;
+            this.btnEsquerda.Text = "<-";
+            this.btnEsquerda.UseVisualStyleBackColor = true;
+            this.btnEsquerda.Visible = false;
+            this.btnEsquerda.Click += new System.EventHandler(this.btnEsquerda_Click);
+            // 
+            // btnDireita
+            // 
+            this.btnDireita.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnDireita.Location = new System.Drawing.Point(655, 40);
+            this.btnDireita.Name = "btnDireita";
+            this.btnDireita.Size = new System.Drawing.Size(50, 50);
+            this.btnDireita.TabIndex = 5;
+            this.btnDireita.Text = "->";
+            this.btnDireita.UseVisualStyleBackColor = true;
+            this.btnDireita.Visible = false;
+            this.btnDireita.Click += new System.EventHandler(this.btnDireita_Click);
+            // 
             // UcFlashcards
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 22F);
@@ -545,6 +627,7 @@
             this.Load += new System.EventHandler(this.UcFlashcards_Load);
             this.Resize += new System.EventHandler(this.UcFlashcards_Resize);
             this.tabControl1.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
             this.tpGerenciar.ResumeLayout(false);
             this.pnlCategorias.ResumeLayout(false);
             this.gbAdicionarCategoria.ResumeLayout(false);
@@ -596,5 +679,11 @@
         private System.Windows.Forms.Panel pnlCategorias;
         private System.Windows.Forms.Button btnEditarFlashcard;
         private System.Windows.Forms.Button btnCancelarEdicao;
+        private CaixaFlashcards caixaFlashcards1;
+        private CaixaFlashcards caixaFlashcards4;
+        private CaixaFlashcards caixaFlashcards3;
+        private CaixaFlashcards caixaFlashcards2;
+        private System.Windows.Forms.Button btnDireita;
+        private System.Windows.Forms.Button btnEsquerda;
     }
 }

@@ -196,7 +196,8 @@ namespace apEstudante
 
         public void GravarDados()
         {
-            LimparPasta(caminhoImagens);
+            if (Directory.Exists(caminhoImagens))
+                LimparPasta(caminhoImagens);
 
             StreamWriter arquivo = new StreamWriter(caminhoFlashcards);
 
@@ -344,6 +345,66 @@ namespace apEstudante
         private void gbAdicionarCategoria_Resize(object sender, EventArgs e)
         {
             btnAdicionarCategoria.Left = txtMateria.Left + (txtMateria.Width - btnAdicionarCategoria.Width) / 2;
+        }
+
+        int flashcardVisivel = 0;
+        private void tabPage1_Resize(object sender, EventArgs e)
+        {
+            ReconfigurarPaginaDeRevisao();
+        }
+        private void ReconfigurarPaginaDeRevisao()
+        {
+            CaixaFlashcards[] caixas = { caixaFlashcards1, caixaFlashcards2, caixaFlashcards3, caixaFlashcards4 };
+
+            if (Width < 1091)
+            {
+                btnEsquerda.Show();
+                btnDireita.Show();
+
+
+                for (int i = 0; i < 4; i++)
+                {
+                    caixas[i].Width = tabPage1.Width - 120;
+                    caixas[i].Left = 60;
+                    caixas[i].Visible = i == flashcardVisivel;
+                }
+            }
+            else
+            {
+                btnEsquerda.Hide();
+                btnDireita.Hide();
+
+                int tamanho = (tabPage1.Width - 30) / 4;
+
+                for (int i = 0; i < 4; i++)
+                {
+                    if (i == 0)
+                        caixas[i].Left = 6;
+                    else
+                        caixas[i].Left = caixas[i - 1].Right + 6;
+
+                    caixas[i].Width = tamanho;
+                    caixas[i].Show();
+                }
+            }
+        }
+
+        private void btnDireita_Click(object sender, EventArgs e)
+        {
+            flashcardVisivel++;
+            btnEsquerda.Enabled = true;
+            btnDireita.Enabled = flashcardVisivel != 3;
+
+            ReconfigurarPaginaDeRevisao();
+        }
+
+        private void btnEsquerda_Click(object sender, EventArgs e)
+        {
+            flashcardVisivel--;
+            btnEsquerda.Enabled = flashcardVisivel != 0;
+            btnDireita.Enabled = true;
+
+            ReconfigurarPaginaDeRevisao();
         }
     }
 }
