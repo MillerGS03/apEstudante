@@ -58,8 +58,13 @@ namespace apEstudante
             dgvFlashcards.Rows[flashcards.Count - 1].Cells[1].Value = flashcard.Categoria;
 
             Color corDeFundo = flashcard.QuantosDiasParaRevisar == 0 ? Color.Orange : dgvFlashcards.DefaultCellStyle.BackColor;
+            Color corDeFundoSelecao = flashcard.QuantosDiasParaRevisar == 0 ? Color.DarkOrange : Color.Silver;
+
             foreach (DataGridViewCell celula in dgvFlashcards.Rows[flashcards.Count - 1].Cells)
+            {
                 celula.Style.BackColor = corDeFundo;
+                celula.Style.SelectionBackColor = corDeFundoSelecao;
+            }
         }
         public void RemoverFlashcard(Flashcard flashcard)
         {

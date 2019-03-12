@@ -28,16 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lblCaixa = new System.Windows.Forms.Label();
             this.lblFrequencia = new System.Windows.Forms.Label();
             this.lblProximaSessao = new System.Windows.Forms.Label();
             this.dgvFlashcards = new System.Windows.Forms.DataGridView();
+            this.clnPalavraChave = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.painelDoubleBuffered3 = new apEstudante.PainelDoubleBuffered();
             this.painelDoubleBuffered4 = new apEstudante.PainelDoubleBuffered();
             this.painelDoubleBuffered2 = new apEstudante.PainelDoubleBuffered();
             this.painelDoubleBuffered1 = new apEstudante.PainelDoubleBuffered();
-            this.clnPalavraChave = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clnCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFlashcards)).BeginInit();
             this.SuspendLayout();
             // 
@@ -87,16 +89,49 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvFlashcards.BackgroundColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvFlashcards.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvFlashcards.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvFlashcards.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.clnPalavraChave,
             this.clnCategoria});
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvFlashcards.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvFlashcards.Location = new System.Drawing.Point(12, 78);
             this.dgvFlashcards.Name = "dgvFlashcards";
             this.dgvFlashcards.ReadOnly = true;
             this.dgvFlashcards.RowHeadersVisible = false;
+            this.dgvFlashcards.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvFlashcards.Size = new System.Drawing.Size(240, 358);
             this.dgvFlashcards.TabIndex = 6;
+            // 
+            // clnPalavraChave
+            // 
+            this.clnPalavraChave.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.clnPalavraChave.HeaderText = "Palavra-Chave";
+            this.clnPalavraChave.Name = "clnPalavraChave";
+            this.clnPalavraChave.ReadOnly = true;
+            this.clnPalavraChave.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // clnCategoria
+            // 
+            this.clnCategoria.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.clnCategoria.HeaderText = "Categoria";
+            this.clnCategoria.Name = "clnCategoria";
+            this.clnCategoria.ReadOnly = true;
+            this.clnCategoria.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // painelDoubleBuffered3
             // 
@@ -133,22 +168,6 @@
             this.painelDoubleBuffered1.Name = "painelDoubleBuffered1";
             this.painelDoubleBuffered1.Size = new System.Drawing.Size(2, 448);
             this.painelDoubleBuffered1.TabIndex = 0;
-            // 
-            // clnPalavraChave
-            // 
-            this.clnPalavraChave.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.clnPalavraChave.HeaderText = "Palavra-Chave";
-            this.clnPalavraChave.Name = "clnPalavraChave";
-            this.clnPalavraChave.ReadOnly = true;
-            this.clnPalavraChave.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // clnCategoria
-            // 
-            this.clnCategoria.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.clnCategoria.HeaderText = "Categoria";
-            this.clnCategoria.Name = "clnCategoria";
-            this.clnCategoria.ReadOnly = true;
-            this.clnCategoria.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // CaixaFlashcards
             // 
