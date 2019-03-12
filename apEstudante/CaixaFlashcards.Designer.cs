@@ -30,12 +30,15 @@
         {
             this.lblCaixa = new System.Windows.Forms.Label();
             this.lblFrequencia = new System.Windows.Forms.Label();
-            this.lsbFlashcards = new System.Windows.Forms.ListBox();
             this.lblProximaSessao = new System.Windows.Forms.Label();
+            this.dgvFlashcards = new System.Windows.Forms.DataGridView();
             this.painelDoubleBuffered3 = new apEstudante.PainelDoubleBuffered();
             this.painelDoubleBuffered4 = new apEstudante.PainelDoubleBuffered();
             this.painelDoubleBuffered2 = new apEstudante.PainelDoubleBuffered();
             this.painelDoubleBuffered1 = new apEstudante.PainelDoubleBuffered();
+            this.clnPalavraChave = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvFlashcards)).BeginInit();
             this.SuspendLayout();
             // 
             // lblCaixa
@@ -62,17 +65,6 @@
             this.lblFrequencia.Text = "Frequência: todo dia";
             this.lblFrequencia.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // lsbFlashcards
-            // 
-            this.lsbFlashcards.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lsbFlashcards.FormattingEnabled = true;
-            this.lsbFlashcards.Location = new System.Drawing.Point(8, 87);
-            this.lsbFlashcards.Name = "lsbFlashcards";
-            this.lsbFlashcards.Size = new System.Drawing.Size(247, 355);
-            this.lsbFlashcards.TabIndex = 4;
-            // 
             // lblProximaSessao
             // 
             this.lblProximaSessao.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -82,8 +74,29 @@
             this.lblProximaSessao.Name = "lblProximaSessao";
             this.lblProximaSessao.Size = new System.Drawing.Size(259, 25);
             this.lblProximaSessao.TabIndex = 5;
-            this.lblProximaSessao.Text = "Próxima sessão: hoje";
+            this.lblProximaSessao.Text = "Cards para hoje: 0";
             this.lblProximaSessao.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // dgvFlashcards
+            // 
+            this.dgvFlashcards.AllowUserToAddRows = false;
+            this.dgvFlashcards.AllowUserToDeleteRows = false;
+            this.dgvFlashcards.AllowUserToResizeColumns = false;
+            this.dgvFlashcards.AllowUserToResizeRows = false;
+            this.dgvFlashcards.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvFlashcards.BackgroundColor = System.Drawing.Color.White;
+            this.dgvFlashcards.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvFlashcards.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.clnPalavraChave,
+            this.clnCategoria});
+            this.dgvFlashcards.Location = new System.Drawing.Point(12, 78);
+            this.dgvFlashcards.Name = "dgvFlashcards";
+            this.dgvFlashcards.ReadOnly = true;
+            this.dgvFlashcards.RowHeadersVisible = false;
+            this.dgvFlashcards.Size = new System.Drawing.Size(240, 358);
+            this.dgvFlashcards.TabIndex = 6;
             // 
             // painelDoubleBuffered3
             // 
@@ -121,19 +134,37 @@
             this.painelDoubleBuffered1.Size = new System.Drawing.Size(2, 448);
             this.painelDoubleBuffered1.TabIndex = 0;
             // 
+            // clnPalavraChave
+            // 
+            this.clnPalavraChave.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.clnPalavraChave.HeaderText = "Palavra-Chave";
+            this.clnPalavraChave.Name = "clnPalavraChave";
+            this.clnPalavraChave.ReadOnly = true;
+            this.clnPalavraChave.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // clnCategoria
+            // 
+            this.clnCategoria.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.clnCategoria.HeaderText = "Categoria";
+            this.clnCategoria.Name = "clnCategoria";
+            this.clnCategoria.ReadOnly = true;
+            this.clnCategoria.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
             // CaixaFlashcards
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.Controls.Add(this.dgvFlashcards);
             this.Controls.Add(this.lblProximaSessao);
-            this.Controls.Add(this.lsbFlashcards);
             this.Controls.Add(this.lblFrequencia);
             this.Controls.Add(this.lblCaixa);
             this.Controls.Add(this.painelDoubleBuffered3);
             this.Controls.Add(this.painelDoubleBuffered4);
             this.Controls.Add(this.painelDoubleBuffered2);
             this.Controls.Add(this.painelDoubleBuffered1);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "CaixaFlashcards";
             this.Size = new System.Drawing.Size(263, 448);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvFlashcards)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -146,7 +177,9 @@
         private PainelDoubleBuffered painelDoubleBuffered4;
         private System.Windows.Forms.Label lblCaixa;
         private System.Windows.Forms.Label lblFrequencia;
-        private System.Windows.Forms.ListBox lsbFlashcards;
         private System.Windows.Forms.Label lblProximaSessao;
+        private System.Windows.Forms.DataGridView dgvFlashcards;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clnPalavraChave;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clnCategoria;
     }
 }

@@ -109,13 +109,13 @@ namespace apEstudante
                     return;
                 }
                 bool existe = false;
+
                 foreach (CategoriaFlashcard cat in categorias)
-                    foreach (Flashcard flsc in cat.flashcards)
-                        if (txtPalavraChave.Text.Trim() == flsc.PalavraChave)
-                        {
-                            existe = true;
-                            break;
-                        }
+                    if (cat.Existe(txtPalavraChave.Text.Trim()))
+                    {
+                        existe = true;
+                        break;
+                    }
                 btnAdicionarEditarFlashcard.Enabled = !existe;
             }
             else
@@ -165,12 +165,14 @@ namespace apEstudante
             }
             else
             {
+                Flashcard flsc = null;
                 if (rbTexto.Checked)
-                    categorias[cbxCategoria.SelectedIndex].flashcards.Add(
-                        new Flashcard(txtPalavraChave.Text.Trim(), txtDefinicao.Text.Trim()));
+                    flsc = new Flashcard(txtPalavraChave.Text.Trim(), txtDefinicao.Text.Trim(), 0, 0);
                 else
-                    categorias[cbxCategoria.SelectedIndex].flashcards.Add(
-                        new Flashcard(txtPalavraChave.Text.Trim(), pnImagem.BackgroundImage));
+                    flsc = new Flashcard(txtPalavraChave.Text.Trim(), pnImagem.BackgroundImage, 0, 0);
+
+                categorias[cbxCategoria.SelectedIndex].AdicionarFlashcard(flsc);
+                caixaFlashcards1.AdicionarFlashcard(flsc);
             }
             txtPalavraChave_TextChanged(this, new EventArgs());
             MostrarItens();
@@ -184,8 +186,7 @@ namespace apEstudante
         {
             lsbFlashcards.Items.Clear();
             if (cbxExibirCategoria.SelectedIndex != -1)
-                foreach (Flashcard flsc in categorias[cbxExibirCategoria.SelectedIndex].flashcards)
-                    lsbFlashcards.Items.Add(flsc.PalavraChave);
+                categorias[cbxExibirCategoria.SelectedIndex].Exibir(ref lsbFlashcards);
         }
 
         private void tpGerenciar_Click(object sender, EventArgs e)

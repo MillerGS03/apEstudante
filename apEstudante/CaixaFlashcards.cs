@@ -13,7 +13,7 @@ namespace apEstudante
     public partial class CaixaFlashcards : UserControl
     {
         private List<Flashcard> flashcards = new List<Flashcard>();
-        private int numeroCaixa = 1, frequencia = 1, proximoEm = 1;
+        private int numeroCaixa = 1, frequencia = 1;
 
         public CaixaFlashcards()
         {
@@ -53,12 +53,18 @@ namespace apEstudante
         public void AdicionarFlashcard(Flashcard flashcard)
         {
             flashcards.Add(flashcard);
-            lsbFlashcards.Items.Add(flashcard.PalavraChave);
+            dgvFlashcards.RowCount++;
+            dgvFlashcards.Rows[flashcards.Count - 1].Cells[0].Value = flashcard.PalavraChave;
+            dgvFlashcards.Rows[flashcards.Count - 1].Cells[1].Value = flashcard.Categoria;
+
+            Color corDeFundo = flashcard.QuantosDiasParaRevisar == 0 ? Color.Orange : dgvFlashcards.DefaultCellStyle.BackColor;
+            foreach (DataGridViewCell celula in dgvFlashcards.Rows[flashcards.Count - 1].Cells)
+                celula.Style.BackColor = corDeFundo;
         }
         public void RemoverFlashcard(Flashcard flashcard)
         {
-            flashcards.Remove(flashcard);
-            lsbFlashcards.Items.Remove(flashcard.PalavraChave);
+            dgvFlashcards.Rows.RemoveAt(flashcards.FindIndex(new Predicate<Flashcard>(flsc => flsc == flashcard)));
+            flashcards.Remove(flashcard);    
         }
         public Flashcard this[int indice] { get => flashcards[indice]; }
         public void MandarFlashcardPara(Flashcard flashcard, CaixaFlashcards outraCaixa)
@@ -68,17 +74,6 @@ namespace apEstudante
         }
         public void PassarDia()
         {
-            proximoEm--;
-            if (proximoEm == 0)
-            {
-                proximoEm = frequencia;
-                lblProximaSessao.Text = "Próxima sessão: hoje";
-            }
-            else if (proximoEm == 1)
-                lblProximaSessao.Text = "Próxima sessão: amanhã";
-            else
-                lblProximaSessao.Text = "Próxima sessão: em " + proximoEm + " dias";
-               
         }
     }
 }

@@ -4,16 +4,35 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace apEstudante
 {
-    class CategoriaFlashcard
+    public class CategoriaFlashcard
     {
         public string Nome { get; set; }
         public List<Flashcard> flashcards = new List<Flashcard>();
         public CategoriaFlashcard(string nome)
         {
             Nome = nome;
+        }
+        public void AdicionarFlashcard(Flashcard flashcard)
+        {
+            flashcards.Add(flashcard);
+            flashcard.Categoria = this;
+        }
+        public bool Existe(string palavraChave)
+        {
+            foreach (Flashcard flsc in flashcards)
+                if (palavraChave == flsc.PalavraChave)
+                    return true;
+            return false;
+        }
+        public void Exibir(ref ListBox listbox)
+        {
+            listbox.Items.Clear();
+            foreach (Flashcard flsc in flashcards)
+                listbox.Items.Add(flsc.PalavraChave);
         }
         public override string ToString()
         {
@@ -32,7 +51,7 @@ namespace apEstudante
             string nomeCategoria = linha.Substring(0, 50).Trim();
             int qtosFlashcards = int.Parse(linha.Substring(50));
             CategoriaFlashcard ctg = new CategoriaFlashcard(nomeCategoria);
-            for (int i = 0; i < qtosFlashcards; i++)               
+            for (int i = 0; i < qtosFlashcards; i++)
                 ctg.flashcards.Add(Flashcard.LerRegistro(arquivo, caminhoImagensFlashcards + "\\" + nomeCategoria));
             return ctg;
         }
