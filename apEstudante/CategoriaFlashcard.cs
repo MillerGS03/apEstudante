@@ -52,7 +52,7 @@ namespace apEstudante
             int qtosFlashcards = int.Parse(linha.Substring(50));
             CategoriaFlashcard ctg = new CategoriaFlashcard(nomeCategoria);
             for (int i = 0; i < qtosFlashcards; i++)
-                ctg.flashcards.Add(Flashcard.LerRegistro(arquivo, caminhoImagensFlashcards + "\\" + nomeCategoria));
+                ctg.AdicionarFlashcard(Flashcard.LerRegistro(arquivo, caminhoImagensFlashcards + "\\" + nomeCategoria));
             return ctg;
         }
     }

@@ -32,6 +32,10 @@ namespace apEstudante
                 while (!arquivo.EndOfStream)
                     AdicionarCategoria(CategoriaFlashcard.LerRegistro(arquivo, caminhoImagens));
                 arquivo.Close();
+
+                foreach (CategoriaFlashcard ctg in categorias)
+                    foreach (Flashcard flsc in ctg.flashcards)
+                        ((CaixaFlashcards) tabPage1.Controls.Find("caixaFlashcards" + (flsc.Nivel + 1), false)[0]).AdicionarFlashcard(flsc);
             }
         }
 
