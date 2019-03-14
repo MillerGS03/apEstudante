@@ -62,6 +62,12 @@
     </Compile>
     <Compile Include="CategoriaFlashcard.cs" />
     <Compile Include="Conteudo.cs" />
+    <Compile Include="DisplayFlashcard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DisplayFlashcard.Designer.cs">
+      <DependentUpon>DisplayFlashcard.cs</DependentUpon>
+    </Compile>
     <Compile Include="Flashcard.cs" />
     <Compile Include="frmAplicativo.cs">
       <SubType>Form</SubType>
@@ -117,6 +123,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CaixaFlashcards.resx">
       <DependentUpon>CaixaFlashcards.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DisplayFlashcard.resx">
+      <DependentUpon>DisplayFlashcard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmAplicativo.resx">
       <DependentUpon>frmAplicativo.cs</DependentUpon>

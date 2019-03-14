@@ -57,14 +57,7 @@ namespace apEstudante
             dgvFlashcards.Rows[flashcards.Count - 1].Cells[0].Value = flashcard.PalavraChave;
             dgvFlashcards.Rows[flashcards.Count - 1].Cells[1].Value = flashcard.Categoria;
 
-            Color corDeFundo = flashcard.QuantosDiasParaRevisar == 0 ? Color.Orange : dgvFlashcards.DefaultCellStyle.BackColor;
-            Color corDeFundoSelecao = flashcard.QuantosDiasParaRevisar == 0 ? Color.DarkOrange : Color.Silver;
-
-            foreach (DataGridViewCell celula in dgvFlashcards.Rows[flashcards.Count - 1].Cells)
-            {
-                celula.Style.BackColor = corDeFundo;
-                celula.Style.SelectionBackColor = corDeFundoSelecao;
-            }
+            AtualizarCorFlashcard(flashcard);
         }
         public void RemoverFlashcard(Flashcard flashcard)
         {
@@ -77,8 +70,30 @@ namespace apEstudante
             RemoverFlashcard(flashcard);
             outraCaixa.AdicionarFlashcard(flashcard);
         }
+
         public void PassarDia()
         {
+            foreach (Flashcard flsc in flashcards)
+            {
+                flsc.QuantosDiasParaRevisar--;
+                AtualizarCorFlashcard(flsc);
+            }
+        }
+        private void AtualizarCorFlashcard(Flashcard flsc)
+        {
+            int indiceFlashcard = flashcards.FindIndex(new Predicate<Flashcard>(flashcard => flashcard == flsc));
+
+            if (indiceFlashcard != -1)
+            {
+                Color corDeFundo = flsc.QuantosDiasParaRevisar == 0 ? Color.Orange : dgvFlashcards.DefaultCellStyle.BackColor;
+                Color corDeFundoSelecao = flsc.QuantosDiasParaRevisar == 0 ? Color.DarkOrange : Color.Silver;
+
+                foreach (DataGridViewCell celula in dgvFlashcards.Rows[indiceFlashcard].Cells)
+                {
+                    celula.Style.BackColor = corDeFundo;
+                    celula.Style.SelectionBackColor = corDeFundoSelecao;
+                }
+            }
         }
     }
 }
