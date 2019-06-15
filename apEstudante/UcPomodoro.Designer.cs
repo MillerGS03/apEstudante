@@ -96,7 +96,7 @@
             this.barra.Maximum = 1500;
             this.barra.Name = "barra";
             this.barra.Size = new System.Drawing.Size(360, 37);
-            this.barra.Step = 300;
+            this.barra.Step = 1;
             this.barra.TabIndex = 5;
             // 
             // lbl0
